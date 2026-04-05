@@ -80,7 +80,7 @@ I'm into animated UI/UX, original branding, and a handcrafted aesthetic — basi
 </p>
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com?user=Sampath0411&theme=tokyonight&hide_border=true" />
+  <img src="https://github-readme-streak-stats.herokuapp.com?user=Sampath0411&theme=tokyonight&hide_border=true" />
 </p>
 
 <p align="center">
