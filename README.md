@@ -72,6 +72,21 @@ I'm into animated UI/UX, original branding, and a handcrafted aesthetic — basi
 - 🛠️ Building and shipping projects with AI tools
 - 📱 Creating tech content on Instagram
 
+## 📊 GitHub Stats
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=Sampath0411&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" height="165" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Sampath0411&layout=compact&theme=tokyonight&hide_border=true" height="165" />
+</p>
+
+<p align="center">
+  <img src="https://streak-stats.demolab.com?user=Sampath0411&theme=tokyonight&hide_border=true" />
+</p>
+
+<p align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=Sampath0411&theme=tokyonight&no-frame=true&row=1&column=6" />
+</p>
+
 ---
 
 *Built with passion. Shipped with AI. ⚡*
