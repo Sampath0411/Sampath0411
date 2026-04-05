@@ -1,7 +1,7 @@
 # 💻 Hey, I'm Sampath Satya Saran
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=venom&color=6C63FF&height=200&section=header&text=Sampath%20Satya%20Saran&fontSize=50&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Builder%20%7C%20Designer%20%7C%20Creator&descAlignY=55&descAlign=50" width="100%" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=6C63FF&height=200&section=header&text=Sampath%20Satya%20Saran&fontSize=50&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Builder%20%7C%20Designer%20%7C%20Creator&descAlignY=55&descAlign=50" width="100%" />
 </p>
 
 <p align="center">
@@ -112,6 +112,12 @@ C/C++        █████████░░░░░░░░░░░  45%
   <a href="mailto:sampathlox@gmail.com" target="_blank">
     <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
   </a>
+  <a href="https://www.linkedin.com/in/sampath1904" target="_blank">
+    <img src="https://img.shields.io/badge/Resume-6C63FF?style=for-the-badge&logo=readthedocs&logoColor=white" />
+  </a>
+  <a href="https://internshala.com" target="_blank">
+    <img src="https://img.shields.io/badge/Internshala-00A550?style=for-the-badge&logo=briefcase&logoColor=white" />
+  </a>
 </p>
 
 ---
@@ -137,6 +143,18 @@ C/C++        █████████░░░░░░░░░░░  45%
 <p align="center">
   <img src="https://github-profile-trophy.vercel.app/?username=Sampath0411&theme=tokyonight&no-frame=true&row=1&column=6" />
 </p>
+
+---
+
+## 🏙️ GitHub Skyline
+
+<p align="center">
+  <a href="https://skyline.github.com/Sampath0411/2025" target="_blank">
+    <img src="https://img.shields.io/badge/View%20My%20GitHub%20Skyline%203D-6C63FF?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+</p>
+
+> 🏙️ Check out my **[GitHub Skyline 2025](https://skyline.github.com/Sampath0411/2025)** — a 3D model of my contribution graph!
 
 ---
 
