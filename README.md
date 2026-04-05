@@ -1,7 +1,7 @@
 # 💻 Hey, I'm Sampath Satya Saran
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=6C63FF&height=200&section=header&text=Sampath%20Satya%20Saran&fontSize=50&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Builder%20%7C%20Designer%20%7C%20Creator&descAlignY=55&descAlign=50" width="100%" />
+  <img src="https://capsule-render.vercel.app/api?type=venom&color=6C63FF&height=200&section=header&text=Sampath%20Satya%20Saran&fontSize=50&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Builder%20%7C%20Designer%20%7C%20Creator&descAlignY=55&descAlign=50" width="100%" />
 </p>
 
 <p align="center">
@@ -67,7 +67,28 @@ I'm into animated UI/UX, original branding, and a handcrafted aesthetic — basi
 
 ---
 
-## 📸 Content & Social
+## 📈 Skill Levels
+
+```
+HTML/CSS     ████████████████░░░░  80%
+JavaScript   ██████████████░░░░░░  70%
+Python       ████████████░░░░░░░░  60%
+UI/UX Design ███████████████░░░░░  75%
+Video Edit   ██████████████░░░░░░  70%
+C/C++        █████████░░░░░░░░░░░  45%
+```
+
+---
+
+## 💼 Open to Opportunities
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=12&height=80&text=🚀%20Available%20for%20Part-Time%20%26%20Remote%20Internships&fontSize=20&fontColor=ffffff&animation=twinkling" width="100%" />
+</p>
+
+> 💬 I'm actively looking for **web development** and **video editing** internships — remote/work-from-home preferred. Feel free to reach out!
+
+---
 
 | Platform | Handle | Niche |
 |---|---|---|
