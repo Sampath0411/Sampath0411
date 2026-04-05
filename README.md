@@ -1,6 +1,10 @@
 # 💻 Hey, I'm Sampath Satya Saran
 
 <p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=6C63FF&height=200&section=header&text=Sampath%20Satya%20Saran&fontSize=50&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Builder%20%7C%20Designer%20%7C%20Creator&descAlignY=55&descAlign=50" width="100%" />
+</p>
+
+<p align="center">
   <a href="https://git.io/typing-svg">
     <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=22&pause=1000&color=6C63FF&center=true&vCenter=true&width=500&lines=BTech+CSE+%40+Andhra+University;Builder+%7C+Designer+%7C+Creator;Web+Dev+%7C+Video+Editor+%7C+AI+Builder;Open+to+Internships+%F0%9F%9A%80" alt="Typing SVG" />
   </a>
@@ -16,9 +20,13 @@
 
 ## 🧑‍💻 About Me
 
+<img align="right" alt="Coding" width="350" src="https://cdn.dribbble.com/users/1162077/screenshots/3848914/programmer.gif" />
+
 I'm a first-year **B.Tech Computer Science & Engineering** student at **Andhra University, Visakhapatnam** (2025–2029). I build real products solo using AI tools, combine design with development, and create content across multiple platforms.
 
 I'm into animated UI/UX, original branding, and a handcrafted aesthetic — basically, nothing generic.
+
+<br/><br/><br/><br/><br/>
 
 ---
 
@@ -68,10 +76,22 @@ I'm into animated UI/UX, original branding, and a handcrafted aesthetic — basi
 
 ---
 
-## 🔗 Links
+## 🤝 Connect With Me
 
-- 💼 [LinkedIn](https://www.linkedin.com/in/sampath1904)
-- 🐙 [GitHub](https://github.com/Sampath0411)
+<p align="center">
+  <a href="https://www.linkedin.com/in/sampath1904" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
+  </a>
+  <a href="https://github.com/Sampath0411" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+  <a href="https://instagram.com/samxeditz.56" target="_blank">
+    <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" />
+  </a>
+  <a href="mailto:sampathlox@gmail.com" target="_blank">
+    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
+  </a>
+</p>
 
 ---
 
@@ -108,3 +128,7 @@ I'm into animated UI/UX, original branding, and a handcrafted aesthetic — basi
 ---
 
 *Built with passion. Shipped with AI. ⚡*
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=6C63FF&height=100&section=footer" width="100%" />
+</p>
