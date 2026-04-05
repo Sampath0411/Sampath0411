@@ -1,4 +1,4 @@
-# 👋 Hey, I'm Sampath Satya Saran
+# 💻 Hey, I'm Sampath Satya Saran
 
 <p align="center">
   <a href="https://git.io/typing-svg">
