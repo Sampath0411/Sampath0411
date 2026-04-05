@@ -1,5 +1,15 @@
 # 👋 Hey, I'm Sampath Satya Saran
 
+<p align="center">
+  <a href="https://git.io/typing-svg">
+    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=22&pause=1000&color=6C63FF&center=true&vCenter=true&width=500&lines=BTech+CSE+%40+Andhra+University;Builder+%7C+Designer+%7C+Creator;Web+Dev+%7C+Video+Editor+%7C+AI+Builder;Open+to+Internships+%F0%9F%9A%80" alt="Typing SVG" />
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=Sampath0411&color=6C63FF&style=for-the-badge&label=PROFILE+VIEWS" />
+</p>
+
 > BTech CSE Student · Builder · Creator · Designer
 
 ---
@@ -85,6 +95,14 @@ I'm into animated UI/UX, original branding, and a handcrafted aesthetic — basi
 
 <p align="center">
   <img src="https://github-profile-trophy.vercel.app/?username=Sampath0411&theme=tokyonight&no-frame=true&row=1&column=6" />
+</p>
+
+---
+
+## 🐍 Contribution Snake
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Sampath0411/Sampath0411/output/github-contribution-grid-snake-dark.svg" alt="snake gif" />
 </p>
 
 ---
