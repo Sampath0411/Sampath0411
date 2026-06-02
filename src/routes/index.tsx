@@ -360,17 +360,44 @@ function VerifiedBadge() {
       title="Verified"
     >
       <svg
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
+        width="26"
+        height="26"
+        viewBox="0 0 512 512"
         xmlns="http://www.w3.org/2000/svg"
         className="inline-block"
       >
-        <rect x="1" y="1" width="22" height="22" rx="5" fill="#3E99ED" />
+        <defs>
+          {/* Blue gradient for 3D sphere effect */}
+          <radialGradient id="badgeSphere" cx="35%" cy="35%" r="60%" fx="30%" fy="30%">
+            <stop offset="0%" stopColor="#5BDAFF" />
+            <stop offset="40%" stopColor="#3A9FE0" />
+            <stop offset="100%" stopColor="#1A73E8" />
+          </radialGradient>
+          {/* Glossy highlight */}
+          <radialGradient id="badgeGloss" cx="30%" cy="25%" r="50%">
+            <stop offset="0%" stopColor="white" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="white" stopOpacity="0" />
+          </radialGradient>
+          {/* Drop shadow */}
+          <filter id="badgeShadow" x="-10%" y="-10%" width="130%" height="130%">
+            <feDropShadow dx="0" dy="2" stdDeviation="4" floodColor="#1A73E8" floodOpacity="0.4" />
+          </filter>
+        </defs>
+
+        {/* Outer rounded square with shadow */}
+        <rect x="12" y="12" width="488" height="488" rx="120" ry="120" fill="url(#badgeSphere)" filter="url(#badgeShadow)" />
+
+        {/* Glossy highlight overlay */}
+        <rect x="12" y="12" width="488" height="488" rx="120" ry="120" fill="url(#badgeGloss)" />
+
+        {/* Inner subtle border */}
+        <rect x="12" y="12" width="488" height="488" rx="120" ry="120" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="4" />
+
+        {/* White checkmark — thick bold strokes */}
         <path
-          d="M6.5 12.5L10 16.5L17.5 8"
+          d="M140 260 L220 340 L372 170"
           stroke="white"
-          strokeWidth="2.5"
+          strokeWidth="52"
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="none"
