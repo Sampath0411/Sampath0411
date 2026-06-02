@@ -12,6 +12,9 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteNav, SiteFooter } from "../components/SiteNav";
+import { CustomCursor } from "../components/CustomCursor";
+import { BackToTop } from "../components/BackToTop";
+import { NowPlaying } from "../components/NowPlaying";
 
 function NotFoundComponent() {
   return (
@@ -23,7 +26,7 @@ function NotFoundComponent() {
           The page you're looking for doesn't exist.
         </p>
         <div className="mt-6">
-          <Link to="/" className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90">
+          <Link to="/" className="inline-flex items-center justify-center rounded-md bg-accent-blue px-4 py-2 text-sm font-medium text-white hover:opacity-90">
             Go home
           </Link>
         </div>
@@ -46,7 +49,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
             onClick={() => { router.invalidate(); reset(); }}
-            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+            className="rounded-md bg-accent-blue px-4 py-2 text-sm font-medium text-white hover:opacity-90"
           >
             Try again
           </button>
@@ -68,11 +71,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Sampath Satya Saran — Full-Stack Developer" },
       { property: "og:description", content: "Second-year CSE student building production-grade web apps. React · TypeScript · Supabase. Seeking WFH internships." },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "/og-image.png" },
+      { property: "og:image", content: "/og-image.svg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Sampath Satya Saran — Full-Stack Developer" },
       { name: "twitter:description", content: "Second-year CSE student building production-grade web apps. React · TypeScript · Supabase." },
-      { name: "twitter:image", content: "/og-image.png" },
+      { name: "twitter:image", content: "/og-image.svg" },
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
@@ -98,9 +101,12 @@ export function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
+      <CustomCursor />
       <SiteNav />
       <Outlet />
       <SiteFooter />
+      <BackToTop />
+      <NowPlaying />
     </QueryClientProvider>
   );
 }
