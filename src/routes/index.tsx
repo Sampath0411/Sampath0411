@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Github, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import sampath from "@/assets/sampath.jpg";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
@@ -127,11 +127,41 @@ function Reveal({
 /* ─────────────────────── Home (all sections) ─────────────────────── */
 
 function Home() {
+  const heroContentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!heroContentRef.current) return;
+      const scrollY = window.scrollY;
+      const viewportHeight = window.innerHeight;
+      // Fade starts at 10% scroll, completes at 60% of hero height
+      const fadeStart = viewportHeight * 0.1;
+      const fadeEnd = viewportHeight * 0.6;
+      const progress = Math.min(Math.max((scrollY - fadeStart) / (fadeEnd - fadeStart), 0), 1);
+
+      // Opacity fades out, content scales down slightly and translates up
+      const opacity = 1 - progress * 0.95;
+      const scale = 1 - progress * 0.08;
+      const translateY = -progress * 60;
+
+      heroContentRef.current.style.opacity = String(opacity);
+      heroContentRef.current.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // init
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       {/* ── HERO ── */}
       <section id="home" className="min-h-screen radial-vignette relative overflow-hidden flex items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-16 px-8 md:px-14 pt-32 pb-16 max-w-7xl mx-auto w-full">
+        <div
+          ref={heroContentRef}
+          className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-16 px-8 md:px-14 pt-32 pb-16 max-w-7xl mx-auto w-full will-change-transform"
+          style={{ transition: "opacity 0.1s ease-out, transform 0.1s ease-out" }}
+        >
           <Reveal direction="scale" className="flex justify-center lg:justify-end">
             <div className="relative w-[280px] sm:w-[360px] md:w-[440px] aspect-square rounded-full overflow-hidden shadow-[0_0_120px_-20px_oklch(0.4_0.12_250/0.6)]">
               <img src={sampath} alt="Portrait of Sampath Satya Saran" className="w-full h-full object-cover" />

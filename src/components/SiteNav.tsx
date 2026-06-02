@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import sampath from "@/assets/sampath.jpg";
 
 const links = [
   { to: "home", label: "HOME" },
@@ -10,7 +11,10 @@ const links = [
 export function SiteNav() {
   const [active, setActive] = useState("home");
   const [scrolled, setScrolled] = useState(false);
+  const [heroVisible, setHeroVisible] = useState(true);
+  const heroRef = useRef<HTMLElement | null>(null);
 
+  // Track scroll for navbar background
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -19,6 +23,26 @@ export function SiteNav() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Track hero section visibility
+  useEffect(() => {
+    heroRef.current = document.getElementById("home");
+    if (!heroRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setHeroVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0,
+        rootMargin: "-80px 0px 0px 0px", // triggers when hero starts leaving viewport
+      }
+    );
+
+    observer.observe(heroRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // Track active section for nav highlighting
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -39,18 +63,52 @@ export function SiteNav() {
     return () => observer.disconnect();
   }, []);
 
+  // When hero is NOT visible, show float elements in nav
+  const showFloat = scrolled && !heroVisible;
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 px-8 md:px-14 py-7 flex items-center justify-between transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 px-8 md:px-14 flex items-center justify-between transition-all duration-500 ${
         scrolled
-          ? "bg-background/90 backdrop-blur-md border-b border-border/40 shadow-[0_1px_0_0_var(--border)]"
-          : "bg-transparent"
+          ? "bg-background/90 backdrop-blur-md border-b border-border/40 py-4 shadow-[0_1px_0_0_var(--border)]"
+          : "bg-transparent py-7"
       }`}
     >
-      <a href="#home" className="font-display text-sm tracking-wider uppercase hover:opacity-80 transition-opacity flex items-center gap-1.5">
-        Sampath Satya Saran
-        <VerifiedBadgeSmall />
-      </a>
+      {/* Left: Floating profile pic + name that slides in from hero */}
+      <div className="flex items-center gap-3 overflow-hidden">
+        {/* Profile picture — slides in from left */}
+        <div
+          className={`rounded-full overflow-hidden transition-all duration-700 ease-out flex-shrink-0 ${
+            showFloat
+              ? "w-9 h-9 md:w-10 md:h-10 opacity-100 translate-x-0 scale-100"
+              : "w-0 h-0 opacity-0 -translate-x-10 scale-50"
+          }`}
+        >
+          <img
+            src={sampath}
+            alt="Sampath"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Name + badge — fades in */}
+        <a
+          href="#home"
+          className={`font-display text-sm tracking-wider uppercase hover:opacity-80 transition-opacity flex items-center gap-1.5 whitespace-nowrap ${
+            showFloat
+              ? "opacity-100 translate-x-0"
+              : "opacity-0 -translate-x-6"
+          }`}
+          style={{
+            transition: "opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
+            transitionDelay: showFloat ? "150ms" : "0ms",
+          }}
+        >
+          Sampath Satya Saran
+          <VerifiedBadgeSmall />
+        </a>
+      </div>
+
       <nav className="flex items-center gap-7 md:gap-10">
         {links.map((l) => (
           <a
