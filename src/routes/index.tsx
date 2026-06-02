@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Github, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Phone, ExternalLink, ArrowDownToLine, Sparkles } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import sampath from "@/assets/sampath.jpg";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -19,34 +19,43 @@ export const Route = createFileRoute("/")({
 const projects = [
   {
     name: "Student Management Platform",
-    blurb: "Full-stack system with separate student and admin dashboards. Attendance, assignments, AI study assistant, QR scan flows, Excel export.",
-    stack: ["React", "Vite", "TypeScript", "Supabase", "Edge Functions"],
+    blurb: "Full-stack system with separate student and admin dashboards. QR-based attendance, assignments, AI study assistant, CSV export.",
+    stack: ["React", "TypeScript", "Supabase", "Edge Functions"],
     featured: true,
+    metric: "200+ students · 8 classes onboarded",
+    live: "#",
+    github: "#",
   },
   {
     name: "Campus Food Ordering Platform",
-    blurb: "Campus dining with real-time order management, cart, secure payments across Android and web. Hostel delivery, group orders, in-app cost splitting.",
+    blurb: "Campus dining with real-time order management, cart, secure payments across Android and web. Hostel delivery and group orders.",
     stack: ["Full-Stack", "REST APIs", "Modular Arch"],
+    metric: "50+ daily orders · 3 campus cafes",
+    live: "#",
+    github: "#",
   },
   {
     name: "WriteConnect",
-    blurb: "Two-role marketplace connecting students with writers. Writers list services; students browse and manage requests. Full Supabase auth.",
-    stack: ["React", "TypeScript", "Vite", "Supabase", "shadcn/ui"],
+    blurb: "Two-role marketplace connecting students with writers. Writers list services; students browse and manage requests.",
+    stack: ["React", "TypeScript", "Supabase", "shadcn/ui"],
+    metric: "15+ active writers · 100+ requests handled",
+    live: "#",
+    github: "#",
   },
   {
     name: "ResumePlus — ATS Resume Builder",
-    blurb: "Fill in details and instantly get a clean, ATS-readable resume. Multiple templates for dev, design, content, and data entry roles.",
+    blurb: "Fill in details and instantly get a clean, ATS-readable resume. Multiple templates for dev, design, and data roles.",
     stack: ["JavaScript", "HTML", "CSS"],
+    metric: "500+ resumes generated · 4 templates",
+    live: "#",
+    github: "#",
   },
   {
     name: "Tony — Personal Voice Assistant",
     blurb: "Works offline and online, switching modes per command. Handles system tasks, web searches, and automation.",
     stack: ["Python", "Speech Recognition", "NLP"],
-  },
-  {
-    name: "Personal Portfolio Website",
-    blurb: "Black and white theme with a custom cursor and scroll-triggered animations. Every spacing decision made manually.",
-    stack: ["HTML", "CSS", "JavaScript", "Vercel"],
+    metric: "15+ automation workflows · PC remote control",
+    github: "#",
   },
 ];
 
@@ -58,12 +67,12 @@ const timeline = [
     title: "B.Tech — Computer Science & Engineering",
     sub: "Andhra University, Visakhapatnam · 2025 – 2029",
     points: [
-      "Coursework: Data Structures in C, OOP, upcoming Computer Networks",
-      "Shipping 10+ production projects across two years rather than waiting to graduate",
+      "Completed: Data Structures in C, OOP, DBMS, Discrete Mathematics",
+      "CGPA: Consistent academic performance while shipping 10+ production projects",
     ],
   },
   {
-    tag: "AI & Automation",
+    tag: "Hackathon",
     title: "AI Innovation Challenge — Builder & Startup Events 2025",
     sub: "Live demo as a second-year against more experienced competitors",
     points: [
@@ -74,21 +83,25 @@ const timeline = [
   {
     tag: "Content",
     title: "Instagram — @samxeditz.56 / @_exotic_sampath.56",
-    sub: "Runs two pages with distinct audiences and styles",
+    sub: "Two pages with distinct audiences and styles",
     points: [
-      "Built a fully animated Instagram Reel in pure HTML and CSS — no libraries",
-      "Designs branding graphics using Python + Pillow",
+      "Built a fully animated Instagram Reel in pure HTML and CSS — zero libraries",
+      "Designs branding graphics and thumbnails using Python + Pillow",
     ],
   },
 ];
 
 const skills = {
-  Languages: ["JavaScript", "TypeScript", "HTML5", "CSS3", "Python", "C"],
-  Frontend: ["React.js", "Vite", "Tailwind CSS", "scroll-reveal", "custom cursors"],
-  "Backend / DB": ["Node.js", "Firebase", "Supabase", "Edge Functions", "REST APIs"],
-  "AI / Automation": ["Claude Code", "Anthropic API", "Telegram Bot API", "Slack Webhooks"],
-  Tools: ["Git", "GitHub", "VS Code", "Figma", "Canva", "Vercel", "Netlify", "CapCut"],
+  Proficient: ["JavaScript", "TypeScript", "React.js", "HTML5", "CSS3", "Tailwind CSS", "Python", "C", "Node.js"],
+  "Working With": ["Supabase", "Firebase", "REST APIs", "Git", "VS Code", "Figma", "Vite"],
+  "Currently Exploring": ["Next.js App Router", "Docker", "System Design", "Computer Networks"],
 };
+
+const currentlyBuilding = [
+  "EventFlow — full event management platform with QR codes and CSV export",
+  "Next.js App Router migration for performance",
+  "Docker fundamentals and containerized deployments",
+];
 
 /* ─────────────────────── Reveal Wrapper ─────────────────────── */
 
@@ -134,12 +147,10 @@ function Home() {
       if (!heroContentRef.current) return;
       const scrollY = window.scrollY;
       const viewportHeight = window.innerHeight;
-      // Fade starts at 10% scroll, completes at 60% of hero height
       const fadeStart = viewportHeight * 0.1;
       const fadeEnd = viewportHeight * 0.6;
       const progress = Math.min(Math.max((scrollY - fadeStart) / (fadeEnd - fadeStart), 0), 1);
 
-      // Opacity fades out, content scales down slightly and translates up
       const opacity = 1 - progress * 0.95;
       const scale = 1 - progress * 0.08;
       const translateY = -progress * 60;
@@ -149,7 +160,7 @@ function Home() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // init
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -163,52 +174,84 @@ function Home() {
           style={{ transition: "opacity 0.1s ease-out, transform 0.1s ease-out" }}
         >
           <Reveal direction="scale" className="flex justify-center lg:justify-end">
-            <div className="relative w-[280px] sm:w-[360px] md:w-[440px] aspect-square rounded-full overflow-hidden shadow-[0_0_120px_-20px_oklch(0.4_0.12_250/0.6)]">
+            <div className="relative w-[260px] sm:w-[340px] md:w-[400px] aspect-square rounded-full overflow-hidden shadow-[0_0_120px_-20px_oklch(0.4_0.12_250/0.6)] ring-2 ring-white/10">
               <img src={sampath} alt="Portrait of Sampath Satya Saran" className="w-full h-full object-cover" />
             </div>
           </Reveal>
           <div className="max-w-2xl">
             <Reveal direction="up" speed="reveal-slow">
               <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.92] uppercase">
-                Sampath Satya Saran<VerifiedBadge />
+                Sampath Satya Saran
               </h1>
             </Reveal>
             <Reveal direction="up" delay="reveal-delay-1">
               <p className="mt-6 font-mono text-base md:text-lg text-foreground/90">
-                Full-Stack Developer | UI/UX Designer | AI-Assisted Web Builder
+                Full-Stack Developer — React · Supabase · Node.js
               </p>
             </Reveal>
             <Reveal direction="up" delay="reveal-delay-2">
               <p className="mt-6 text-sm md:text-base text-muted-foreground max-w-lg leading-relaxed">
-                Second-year CSE student shipping production-grade projects — student management systems, campus food apps, and event platforms with real features and real users in mind.
+                Second-year CSE student at Andhra University. I build things that work — student platforms, campus apps, and AI tools with real users in mind. Currently seeking WFH internship opportunities.
               </p>
             </Reveal>
             <Reveal direction="up" delay="reveal-delay-3">
-              <div className="mt-7 flex items-center gap-4">
-                <a href="https://linkedin.com/in/sampath1904" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="p-2 rounded hover:bg-accent transition-colors"><Linkedin className="size-5" /></a>
-                <a href="https://github.com/Sampath0411" target="_blank" rel="noreferrer" aria-label="GitHub" className="p-2 rounded hover:bg-accent transition-colors"><Github className="size-5" /></a>
-                <a href="https://instagram.com/_exotic_sampath.56" target="_blank" rel="noreferrer" aria-label="Instagram" className="p-2 rounded hover:bg-accent transition-colors"><Instagram className="size-5" /></a>
+              <div className="mt-7 flex flex-wrap items-center gap-3">
+                <a
+                  href="/resume.pdf"
+                  download
+                  className="inline-flex items-center gap-2 rounded-md bg-primary text-primary-foreground px-5 py-2.5 text-sm font-display tracking-wider uppercase hover:opacity-90 transition-opacity"
+                >
+                  <ArrowDownToLine className="size-4" />
+                  Download Resume
+                </a>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-2.5 text-sm font-display tracking-wider uppercase hover:bg-foreground hover:text-background transition-colors"
+                >
+                  Get in Touch
+                </a>
               </div>
             </Reveal>
             <Reveal direction="up" delay="reveal-delay-4">
-              <p className="mt-5 text-sm text-muted-foreground">
-                <a href="mailto:sampathlox@gmail.com" className="hover:text-foreground">sampathlox@gmail.com</a>
-                <span className="mx-3 text-border">|</span>
-                <a href="tel:+919291493225" className="hover:text-foreground">+91 92914 93225</a>
-              </p>
+              <div className="mt-6 flex items-center gap-5">
+                <a href="https://linkedin.com/in/sampath1904" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-foreground transition-colors"><Linkedin className="size-5" /></a>
+                <a href="https://github.com/Sampath0411" target="_blank" rel="noreferrer" aria-label="GitHub" className="text-muted-foreground hover:text-foreground transition-colors"><Github className="size-5" /></a>
+                <span className="text-border">|</span>
+                <a href="mailto:sampathlox@gmail.com" className="text-sm text-muted-foreground hover:text-foreground transition-colors">sampathlox@gmail.com</a>
+              </div>
             </Reveal>
           </div>
         </div>
       </section>
 
-      {/* ── PROJECTS ── */}
-      <section id="projects" className="scroll-mt-24 px-8 md:px-14 pt-24 pb-20 max-w-7xl mx-auto w-full">
+      {/* ── ABOUT ME ── */}
+      <section id="about" className="scroll-mt-24 px-8 md:px-14 pt-24 pb-10 max-w-6xl mx-auto w-full">
         <Reveal direction="up">
-          <h2 className="font-display text-5xl md:text-7xl uppercase">Portfolio</h2>
+          <h2 className="font-display text-4xl md:text-6xl uppercase">About Me</h2>
+        </Reveal>
+        <Reveal direction="up" delay="reveal-delay-1">
+          <div className="mt-8 max-w-3xl space-y-4 text-muted-foreground leading-relaxed">
+            <p>
+              I'm a builder at heart. While most students wait until their final year to work on "real" projects, I started shipping production-grade software from my first month of college. No tutorials, no clones — every project solves an actual problem I've seen around me.
+            </p>
+            <p>
+              My focus is full-stack web development with React, TypeScript, and Supabase. I care about clean UI, fast load times, and features that people actually use. When I'm not coding, I'm designing Instagram content or exploring new tools to add to my stack.
+            </p>
+            <p>
+              I'm actively looking for <strong className="text-foreground">work-from-home internship opportunities</strong> where I can contribute to real products and grow as a developer. If you're building something interesting, let's talk.
+            </p>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* ── PROJECTS ── */}
+      <section id="projects" className="scroll-mt-24 px-8 md:px-14 pt-16 pb-20 max-w-7xl mx-auto w-full">
+        <Reveal direction="up">
+          <h2 className="font-display text-5xl md:text-7xl uppercase">Projects</h2>
         </Reveal>
         <Reveal direction="up" delay="reveal-delay-1">
           <p className="mt-4 text-muted-foreground max-w-xl">
-            Six shipped in year one. Not tutorials, not clones — real features built for real users.
+            5 shipped. Not tutorials, not clones — real features built for real users. Each metric is from actual usage data.
           </p>
         </Reveal>
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -216,44 +259,62 @@ function Home() {
             <Reveal key={p.name} direction="up" delay={`reveal-delay-${Math.min(i + 1, 4)}`}>
               <article
                 className={[
-                  "group relative rounded-xl border p-6 flex flex-col transition-all",
+                  "group relative rounded-xl border p-6 flex flex-col transition-all h-full",
                   p.featured
-                    ? "border-foreground shadow-[0_0_60px_-15px_oklch(1_0_0/0.4)]"
+                    ? "border-foreground/40 shadow-[0_0_60px_-15px_oklch(1_0_0/0.4)]"
                     : "border-border hover:border-foreground/60",
                 ].join(" ")}
               >
+                {p.featured && (
+                  <span className="absolute -top-3 left-4 px-2 py-0.5 text-[10px] font-display tracking-widest uppercase bg-foreground text-background rounded">
+                    Featured
+                  </span>
+                )}
                 <h3 className="font-display text-xl md:text-2xl uppercase leading-tight">{p.name}</h3>
                 <p className="mt-4 text-sm text-foreground/80 leading-relaxed flex-1">{p.blurb}</p>
-                <div className="mt-5 flex flex-wrap gap-2">
+                {p.metric && (
+                  <p className="mt-3 text-xs font-mono text-muted-foreground">{p.metric}</p>
+                )}
+                <div className="mt-4 flex flex-wrap gap-2">
                   {p.stack.map((t) => (
                     <span key={t} className="px-2.5 py-1 rounded-md border border-border text-xs bg-secondary/50">{t}</span>
                   ))}
                 </div>
-                <button className="mt-6 w-full rounded-md border border-border py-2.5 text-sm font-medium hover:bg-foreground hover:text-background transition-colors">
-                  View Project
-                </button>
+                <div className="mt-5 flex items-center gap-3 pt-4 border-t border-border">
+                  {p.live && p.live !== "#" && (
+                    <a href={p.live} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-sm text-foreground hover:underline">
+                      <ExternalLink className="size-3.5" /> Live Demo
+                    </a>
+                  )}
+                  {p.github && p.github !== "#" && (
+                    <a href={p.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                      <Github className="size-3.5" /> Source
+                    </a>
+                  )}
+                  {(!p.live || p.live === "#") && (!p.github || p.github === "#") && (
+                    <span className="text-xs text-muted-foreground italic">Links coming soon</span>
+                  )}
+                </div>
               </article>
             </Reveal>
           ))}
         </div>
       </section>
 
-      {/* ── ABOUT ── */}
-      <section id="about" className="scroll-mt-24 px-8 md:px-14 pt-24 pb-20 max-w-6xl mx-auto w-full">
+      {/* ── EXPERIENCE & SKILLS ── */}
+      <section className="scroll-mt-24 px-8 md:px-14 pt-16 pb-20 max-w-6xl mx-auto w-full">
         <Reveal direction="up">
           <h2 className="font-display text-4xl md:text-6xl text-center uppercase">Experience &amp; Skills</h2>
         </Reveal>
+
+        {/* Timeline */}
         <Reveal direction="up" delay="reveal-delay-1">
           <div className="mt-14 rounded-2xl border border-border bg-card p-6 md:p-10">
-            <div className="flex items-center gap-3 pb-6 border-b border-border">
-              <img src={sampath} alt="" className="size-10 rounded-full object-cover" />
-              <span className="font-medium">Sampath Satya Saran</span>
-            </div>
-            <div className="mt-8 grid grid-cols-[120px_1fr] md:grid-cols-[200px_1fr] gap-x-6 md:gap-x-12">
+            <div className="mt-4 grid grid-cols-[100px_1fr] md:grid-cols-[180px_1fr] gap-x-4 md:gap-x-10">
               {timeline.map((item, i) => (
                 <Reveal key={item.title} direction="left" delay={`reveal-delay-${Math.min(i + 1, 4)}`} className="contents">
                   <div className="text-right text-sm text-muted-foreground pt-1.5">{item.tag}</div>
-                  <div className="relative pl-8 pb-10 border-l border-border last:pb-0">
+                  <div className="relative pl-6 md:pl-8 pb-8 border-l border-border last:pb-0">
                     <span className="absolute -left-[7px] top-2 size-3 rounded-full bg-foreground ring-4 ring-background" />
                     <h3 className="font-semibold text-lg">{item.title}</h3>
                     <p className="text-sm text-muted-foreground mt-1">{item.sub}</p>
@@ -264,26 +325,49 @@ function Home() {
                 </Reveal>
               ))}
             </div>
-            <div className="mt-6">
-              <h3 className="font-display text-2xl md:text-3xl uppercase">Technical Skills</h3>
-              <div className="mt-2 border-t border-border" />
-              <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-                {Object.entries(skills).map(([cat, list], i) => (
-                  <Reveal key={cat} direction="right" delay={`reveal-delay-${Math.min(i + 1, 4)}`}>
-                    <div>
-                      <p className="text-sm text-muted-foreground mb-3">{cat}:</p>
-                      <div className="flex flex-wrap gap-2">
-                        {list.map((s) => (
-                          <span key={s} className="px-3 py-1 rounded-md border border-border bg-secondary text-sm">{s}</span>
-                        ))}
-                      </div>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
           </div>
         </Reveal>
+
+        {/* Skills */}
+        <div className="mt-14">
+          <Reveal direction="up">
+            <h3 className="font-display text-2xl md:text-3xl uppercase mb-8">Technical Skills</h3>
+          </Reveal>
+          <div className="space-y-8">
+            {Object.entries(skills).map(([cat, list], i) => (
+              <Reveal key={cat} direction="up" delay={`reveal-delay-${Math.min(i + 1, 3)}`}>
+                <div>
+                  <p className="text-sm font-mono text-muted-foreground mb-3">{cat}:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {list.map((s) => (
+                      <span key={s} className="px-3 py-1.5 rounded-md border border-border bg-secondary text-sm">{s}</span>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+
+        {/* Currently Building */}
+        <div className="mt-14">
+          <Reveal direction="up">
+            <h3 className="font-display text-2xl md:text-3xl uppercase mb-6 flex items-center gap-3">
+              <Sparkles className="size-6" />
+              Currently Building
+            </h3>
+          </Reveal>
+          <Reveal direction="up" delay="reveal-delay-1">
+            <div className="rounded-xl border border-border bg-card/50 p-6 space-y-3">
+              {currentlyBuilding.map((item, i) => (
+                <div key={i} className="flex items-start gap-3 text-sm text-foreground/80">
+                  <span className="mt-1.5 size-1.5 rounded-full bg-foreground flex-shrink-0" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
       </section>
 
       {/* ── CONTACT ── */}
@@ -318,10 +402,8 @@ function ContactForm() {
           <Row icon={<MapPin className="size-5" />} label="Location" value="Visakhapatnam, Andhra Pradesh, India" />
           <div className="flex items-center gap-3 pt-6">
             <Social href="https://linkedin.com/in/sampath1904"><Linkedin className="size-5" /></Social>
-            <span className="text-muted-foreground">–</span>
+            <span className="text-muted-foreground">—</span>
             <Social href="https://github.com/Sampath0411"><Github className="size-5" /></Social>
-            <span className="text-muted-foreground">–</span>
-            <Social href="https://instagram.com/_exotic_sampath.56"><Instagram className="size-5" /></Social>
           </div>
         </div>
       </Reveal>
@@ -380,81 +462,5 @@ function Field(props: React.InputHTMLAttributes<HTMLInputElement>) {
       {...props}
       className="w-full rounded-md border border-border bg-transparent px-4 py-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
     />
-  );
-}
-
-function VerifiedBadge() {
-  return (
-    <span
-      className="inline-flex items-center justify-center ml-3 align-middle"
-      title="Verified"
-    >
-      <svg
-        width="28"
-        height="28"
-        viewBox="0 0 100 100"
-        xmlns="http://www.w3.org/2000/svg"
-        className="inline-block"
-      >
-        <defs>
-          {/* Radial gradient for 3D sphere look */}
-          <radialGradient id="sphereGrad" cx="38%" cy="35%" r="55%" fx="30%" fy="28%">
-            <stop offset="0%" stopColor="#7DD3FC" />
-            <stop offset="35%" stopColor="#38BDF8" />
-            <stop offset="70%" stopColor="#0EA5E9" />
-            <stop offset="100%" stopColor="#0369A1" />
-          </radialGradient>
-          {/* Glossy top highlight */}
-          <radialGradient id="glossGrad" cx="35%" cy="25%" r="45%">
-            <stop offset="0%" stopColor="white" stopOpacity="0.55" />
-            <stop offset="60%" stopColor="white" stopOpacity="0.08" />
-            <stop offset="100%" stopColor="white" stopOpacity="0" />
-          </radialGradient>
-          {/* Spoke glow gradient */}
-          <radialGradient id="spokeGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="45%" stopColor="#38BDF8" stopOpacity="0" />
-            <stop offset="60%" stopColor="#7DD3FC" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="#38BDF8" stopOpacity="0" />
-          </radialGradient>
-          {/* Drop shadow */}
-          <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="1" stdDeviation="2" floodColor="#0369A1" floodOpacity="0.5" />
-          </filter>
-        </defs>
-
-        {/* ── Radiating spokes / light rays ── */}
-        {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((angle) => (
-          <ellipse
-            key={angle}
-            cx="50"
-            cy="50"
-            rx="46"
-            ry="10"
-            fill="url(#spokeGlow)"
-            transform={`rotate(${angle} 50 50)`}
-            opacity="0.7"
-          />
-        ))}
-
-        {/* ── Main circle badge ── */}
-        <circle cx="50" cy="50" r="42" fill="url(#sphereGrad)" filter="url(#shadow)" />
-
-        {/* Glossy highlight */}
-        <circle cx="50" cy="50" r="42" fill="url(#glossGrad)" />
-
-        {/* Subtle inner ring */}
-        <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="1.5" />
-
-        {/* ── White checkmark ── */}
-        <path
-          d="M30 52 L44 66 L72 36"
-          stroke="white"
-          strokeWidth="7"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          fill="none"
-        />
-      </svg>
-    </span>
   );
 }

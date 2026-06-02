@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import sampath from "@/assets/sampath.jpg";
 
+
 const links = [
   { to: "home", label: "HOME" },
   { to: "projects", label: "PROJECTS" },
@@ -105,7 +106,6 @@ export function SiteNav() {
           }}
         >
           Sampath Satya Saran
-          <VerifiedBadgeSmall />
         </a>
       </div>
 
@@ -128,65 +128,6 @@ export function SiteNav() {
         ))}
       </nav>
     </header>
-  );
-}
-
-function VerifiedBadgeSmall() {
-  return (
-    <span className="inline-flex items-center justify-center" title="Verified">
-      <svg
-        width="16"
-        height="16"
-        viewBox="0 0 100 100"
-        xmlns="http://www.w3.org/2000/svg"
-        className="inline-block"
-      >
-        <defs>
-          <radialGradient id="sphereGradNav" cx="38%" cy="35%" r="55%" fx="30%" fy="28%">
-            <stop offset="0%" stopColor="#7DD3FC" />
-            <stop offset="35%" stopColor="#38BDF8" />
-            <stop offset="70%" stopColor="#0EA5E9" />
-            <stop offset="100%" stopColor="#0369A1" />
-          </radialGradient>
-          <radialGradient id="glossGradNav" cx="35%" cy="25%" r="45%">
-            <stop offset="0%" stopColor="white" stopOpacity="0.55" />
-            <stop offset="60%" stopColor="white" stopOpacity="0.08" />
-            <stop offset="100%" stopColor="white" stopOpacity="0" />
-          </radialGradient>
-          <radialGradient id="spokeGlowNav" cx="50%" cy="50%" r="50%">
-            <stop offset="45%" stopColor="#38BDF8" stopOpacity="0" />
-            <stop offset="60%" stopColor="#7DD3FC" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="#38BDF8" stopOpacity="0" />
-          </radialGradient>
-          <filter id="shadowNav" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="1" stdDeviation="2" floodColor="#0369A1" floodOpacity="0.5" />
-          </filter>
-        </defs>
-        {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((angle) => (
-          <ellipse
-            key={angle}
-            cx="50"
-            cy="50"
-            rx="46"
-            ry="10"
-            fill="url(#spokeGlowNav)"
-            transform={`rotate(${angle} 50 50)`}
-            opacity="0.7"
-          />
-        ))}
-        <circle cx="50" cy="50" r="42" fill="url(#sphereGradNav)" filter="url(#shadowNav)" />
-        <circle cx="50" cy="50" r="42" fill="url(#glossGradNav)" />
-        <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="1.5" />
-        <path
-          d="M30 52 L44 66 L72 36"
-          stroke="white"
-          strokeWidth="7"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          fill="none"
-        />
-      </svg>
-    </span>
   );
 }
 
