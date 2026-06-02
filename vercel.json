@@ -4,11 +4,5 @@
   "framework": null,
   "rewrites": [
     { "source": "/(.*)", "destination": "/api/server.js" }
-  ],
-  "functions": {
-    "api/server.js": {
-      "runtime": "nodejs20.x",
-      "includeFiles": "dist/server/**"
-    }
-  }
+  ]
 }

@@ -1,10 +1,4 @@
-import { createStartHandler, defaultStreamHandler } from "@tanstack/react-start/server";
-import { createRouter } from "../dist/server/router.js";
-
-const startHandler = createStartHandler({
-  createRouter,
-  defaultStreamHandler,
-});
+import server from "../dist/server/server.js";
 
 export default async function handler(req, res) {
   const protocol = req.headers["x-forwarded-proto"] || "https";
@@ -19,7 +13,7 @@ export default async function handler(req, res) {
   });
 
   try {
-    const response = await startHandler(request);
+    const response = await server.fetch(request, process.env, {});
     const body = await response.arrayBuffer();
 
     res.statusCode = response.status;
