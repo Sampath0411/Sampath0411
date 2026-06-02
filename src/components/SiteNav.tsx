@@ -9,6 +9,15 @@ const links = [
 
 export function SiteNav() {
   const [active, setActive] = useState("home");
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -31,7 +40,13 @@ export function SiteNav() {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-8 md:px-14 py-7 flex items-center justify-between bg-background/80 backdrop-blur-md border-b border-border/40">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 px-8 md:px-14 py-7 flex items-center justify-between transition-all duration-300 ${
+        scrolled
+          ? "bg-background/90 backdrop-blur-md border-b border-border/40 shadow-[0_1px_0_0_var(--border)]"
+          : "bg-transparent"
+      }`}
+    >
       <a href="#home" className="font-display text-sm tracking-wider uppercase hover:opacity-80 transition-opacity">
         Sampath Satya Saran
       </a>
@@ -40,11 +55,16 @@ export function SiteNav() {
           <a
             key={l.to}
             href={`#${l.to}`}
-            className={`text-sm tracking-[0.12em] transition-colors ${
+            className={`relative text-sm tracking-[0.12em] transition-colors duration-300 ${
               active === l.to ? "text-foreground font-semibold" : "text-muted-foreground hover:text-foreground"
             }`}
           >
             {l.label}
+            <span
+              className={`absolute -bottom-1 left-0 h-[2px] bg-foreground transition-all duration-300 ease-out ${
+                active === l.to ? "w-full" : "w-0"
+              }`}
+            />
           </a>
         ))}
       </nav>
@@ -57,8 +77,8 @@ export function SiteFooter() {
     <footer className="border-t border-border mt-auto px-8 md:px-14 py-6 flex items-center justify-between text-xs text-muted-foreground">
       <span>© 2026 Sampath Satya Saran. Built with care.</span>
       <div className="flex items-center gap-4">
-        <a href="https://linkedin.com/in/sampath1904" target="_blank" rel="noreferrer" className="hover:text-foreground">LinkedIn</a>
-        <a href="https://github.com/Sampath0411" target="_blank" rel="noreferrer" className="hover:text-foreground">GitHub</a>
+        <a href="https://linkedin.com/in/sampath1904" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">LinkedIn</a>
+        <a href="https://github.com/Sampath0411" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">GitHub</a>
       </div>
     </footer>
   );

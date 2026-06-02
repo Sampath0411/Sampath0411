@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Github, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
 import sampath from "@/assets/sampath.jpg";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -89,6 +90,40 @@ const skills = {
   Tools: ["Git", "GitHub", "VS Code", "Figma", "Canva", "Vercel", "Netlify", "CapCut"],
 };
 
+/* ─────────────────────── Reveal Wrapper ─────────────────────── */
+
+function Reveal({
+  children,
+  className = "",
+  direction = "up",
+  delay = "",
+  speed = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+  direction?: "up" | "left" | "right" | "scale";
+  delay?: string;
+  speed?: string;
+}) {
+  const { ref, isVisible } = useScrollReveal<HTMLDivElement>();
+
+  const dirClass = {
+    up: "reveal",
+    left: "reveal-left",
+    right: "reveal-right",
+    scale: "reveal-scale",
+  }[direction];
+
+  return (
+    <div
+      ref={ref}
+      className={`${dirClass} ${isVisible ? "visible" : ""} ${delay} ${speed} ${className}`}
+    >
+      {children}
+    </div>
+  );
+}
+
 /* ─────────────────────── Home (all sections) ─────────────────────── */
 
 function Home() {
@@ -97,117 +132,142 @@ function Home() {
       {/* ── HERO ── */}
       <section id="home" className="min-h-screen radial-vignette relative overflow-hidden flex items-center">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-16 px-8 md:px-14 pt-32 pb-16 max-w-7xl mx-auto w-full">
-          <div className="flex justify-center lg:justify-end">
+          <Reveal direction="scale" className="flex justify-center lg:justify-end">
             <div className="relative w-[280px] sm:w-[360px] md:w-[440px] aspect-square rounded-full overflow-hidden shadow-[0_0_120px_-20px_oklch(0.4_0.12_250/0.6)]">
               <img src={sampath} alt="Portrait of Sampath Satya Saran" className="w-full h-full object-cover" />
             </div>
-          </div>
+          </Reveal>
           <div className="max-w-2xl">
-            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.92] uppercase">
-              Sampath<br />Saran
-            </h1>
-            <p className="mt-6 font-mono text-base md:text-lg text-foreground/90">
-              Full-Stack Developer | UI/UX Designer | AI-Assisted Web Builder
-            </p>
-            <p className="mt-6 text-sm md:text-base text-muted-foreground max-w-lg leading-relaxed">
-              First-year CSE student shipping production-grade projects — student management systems, campus food apps, and event platforms with real features and real users in mind.
-            </p>
-            <div className="mt-7 flex items-center gap-4">
-              <a href="https://linkedin.com/in/sampath1904" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="p-2 rounded hover:bg-accent transition-colors"><Linkedin className="size-5" /></a>
-              <a href="https://github.com/Sampath0411" target="_blank" rel="noreferrer" aria-label="GitHub" className="p-2 rounded hover:bg-accent transition-colors"><Github className="size-5" /></a>
-              <a href="https://instagram.com/_exotic_sampath.56" target="_blank" rel="noreferrer" aria-label="Instagram" className="p-2 rounded hover:bg-accent transition-colors"><Instagram className="size-5" /></a>
-            </div>
-            <p className="mt-5 text-sm text-muted-foreground">
-              <a href="mailto:sampathlox@gmail.com" className="hover:text-foreground">sampathlox@gmail.com</a>
-              <span className="mx-3 text-border">|</span>
-              <a href="tel:+919291493225" className="hover:text-foreground">+91 92914 93225</a>
-            </p>
+            <Reveal direction="up" speed="reveal-slow">
+              <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.92] uppercase">
+                Sampath<br />Saran
+              </h1>
+            </Reveal>
+            <Reveal direction="up" delay="reveal-delay-1">
+              <p className="mt-6 font-mono text-base md:text-lg text-foreground/90">
+                Full-Stack Developer | UI/UX Designer | AI-Assisted Web Builder
+              </p>
+            </Reveal>
+            <Reveal direction="up" delay="reveal-delay-2">
+              <p className="mt-6 text-sm md:text-base text-muted-foreground max-w-lg leading-relaxed">
+                First-year CSE student shipping production-grade projects — student management systems, campus food apps, and event platforms with real features and real users in mind.
+              </p>
+            </Reveal>
+            <Reveal direction="up" delay="reveal-delay-3">
+              <div className="mt-7 flex items-center gap-4">
+                <a href="https://linkedin.com/in/sampath1904" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="p-2 rounded hover:bg-accent transition-colors"><Linkedin className="size-5" /></a>
+                <a href="https://github.com/Sampath0411" target="_blank" rel="noreferrer" aria-label="GitHub" className="p-2 rounded hover:bg-accent transition-colors"><Github className="size-5" /></a>
+                <a href="https://instagram.com/_exotic_sampath.56" target="_blank" rel="noreferrer" aria-label="Instagram" className="p-2 rounded hover:bg-accent transition-colors"><Instagram className="size-5" /></a>
+              </div>
+            </Reveal>
+            <Reveal direction="up" delay="reveal-delay-4">
+              <p className="mt-5 text-sm text-muted-foreground">
+                <a href="mailto:sampathlox@gmail.com" className="hover:text-foreground">sampathlox@gmail.com</a>
+                <span className="mx-3 text-border">|</span>
+                <a href="tel:+919291493225" className="hover:text-foreground">+91 92914 93225</a>
+              </p>
+            </Reveal>
           </div>
         </div>
       </section>
 
       {/* ── PROJECTS ── */}
       <section id="projects" className="scroll-mt-24 px-8 md:px-14 pt-24 pb-20 max-w-7xl mx-auto w-full">
-        <h2 className="font-display text-5xl md:text-7xl uppercase">Portfolio</h2>
-        <p className="mt-4 text-muted-foreground max-w-xl">
-          Six shipped in year one. Not tutorials, not clones — real features built for real users.
-        </p>
+        <Reveal direction="up">
+          <h2 className="font-display text-5xl md:text-7xl uppercase">Portfolio</h2>
+        </Reveal>
+        <Reveal direction="up" delay="reveal-delay-1">
+          <p className="mt-4 text-muted-foreground max-w-xl">
+            Six shipped in year one. Not tutorials, not clones — real features built for real users.
+          </p>
+        </Reveal>
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((p) => (
-            <article
-              key={p.name}
-              className={[
-                "group relative rounded-xl border p-6 flex flex-col transition-all",
-                p.featured
-                  ? "border-foreground shadow-[0_0_60px_-15px_oklch(1_0_0/0.4)]"
-                  : "border-border hover:border-foreground/60",
-              ].join(" ")}
-            >
-              <h3 className="font-display text-xl md:text-2xl uppercase leading-tight">{p.name}</h3>
-              <p className="mt-4 text-sm text-foreground/80 leading-relaxed flex-1">{p.blurb}</p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {p.stack.map((t) => (
-                  <span key={t} className="px-2.5 py-1 rounded-md border border-border text-xs bg-secondary/50">{t}</span>
-                ))}
-              </div>
-              <button className="mt-6 w-full rounded-md border border-border py-2.5 text-sm font-medium hover:bg-foreground hover:text-background transition-colors">
-                View Project
-              </button>
-            </article>
+          {projects.map((p, i) => (
+            <Reveal key={p.name} direction="up" delay={`reveal-delay-${Math.min(i + 1, 4)}`}>
+              <article
+                className={[
+                  "group relative rounded-xl border p-6 flex flex-col transition-all",
+                  p.featured
+                    ? "border-foreground shadow-[0_0_60px_-15px_oklch(1_0_0/0.4)]"
+                    : "border-border hover:border-foreground/60",
+                ].join(" ")}
+              >
+                <h3 className="font-display text-xl md:text-2xl uppercase leading-tight">{p.name}</h3>
+                <p className="mt-4 text-sm text-foreground/80 leading-relaxed flex-1">{p.blurb}</p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {p.stack.map((t) => (
+                    <span key={t} className="px-2.5 py-1 rounded-md border border-border text-xs bg-secondary/50">{t}</span>
+                  ))}
+                </div>
+                <button className="mt-6 w-full rounded-md border border-border py-2.5 text-sm font-medium hover:bg-foreground hover:text-background transition-colors">
+                  View Project
+                </button>
+              </article>
+            </Reveal>
           ))}
         </div>
       </section>
 
       {/* ── ABOUT ── */}
       <section id="about" className="scroll-mt-24 px-8 md:px-14 pt-24 pb-20 max-w-6xl mx-auto w-full">
-        <h2 className="font-display text-4xl md:text-6xl text-center uppercase">Experience &amp; Skills</h2>
-        <div className="mt-14 rounded-2xl border border-border bg-card p-6 md:p-10">
-          <div className="flex items-center gap-3 pb-6 border-b border-border">
-            <img src={sampath} alt="" className="size-10 rounded-full object-cover" />
-            <span className="font-medium">Sampath Satya Saran</span>
-          </div>
-          <div className="mt-8 grid grid-cols-[120px_1fr] md:grid-cols-[200px_1fr] gap-x-6 md:gap-x-12">
-            {timeline.map((item) => (
-              <div key={item.title} className="contents">
-                <div className="text-right text-sm text-muted-foreground pt-1.5">{item.tag}</div>
-                <div className="relative pl-8 pb-10 border-l border-border last:pb-0">
-                  <span className="absolute -left-[7px] top-2 size-3 rounded-full bg-foreground ring-4 ring-background" />
-                  <h3 className="font-semibold text-lg">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground mt-1">{item.sub}</p>
-                  <ul className="mt-3 space-y-1.5 text-sm text-foreground/80 list-disc pl-5">
-                    {item.points.map((p) => <li key={p}>{p}</li>)}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-6">
-            <h3 className="font-display text-2xl md:text-3xl uppercase">Technical Skills</h3>
-            <div className="mt-2 border-t border-border" />
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-              {Object.entries(skills).map(([cat, list]) => (
-                <div key={cat}>
-                  <p className="text-sm text-muted-foreground mb-3">{cat}:</p>
-                  <div className="flex flex-wrap gap-2">
-                    {list.map((s) => (
-                      <span key={s} className="px-3 py-1 rounded-md border border-border bg-secondary text-sm">{s}</span>
-                    ))}
+        <Reveal direction="up">
+          <h2 className="font-display text-4xl md:text-6xl text-center uppercase">Experience &amp; Skills</h2>
+        </Reveal>
+        <Reveal direction="up" delay="reveal-delay-1">
+          <div className="mt-14 rounded-2xl border border-border bg-card p-6 md:p-10">
+            <div className="flex items-center gap-3 pb-6 border-b border-border">
+              <img src={sampath} alt="" className="size-10 rounded-full object-cover" />
+              <span className="font-medium">Sampath Satya Saran</span>
+            </div>
+            <div className="mt-8 grid grid-cols-[120px_1fr] md:grid-cols-[200px_1fr] gap-x-6 md:gap-x-12">
+              {timeline.map((item, i) => (
+                <Reveal key={item.title} direction="left" delay={`reveal-delay-${Math.min(i + 1, 4)}`} className="contents">
+                  <div className="text-right text-sm text-muted-foreground pt-1.5">{item.tag}</div>
+                  <div className="relative pl-8 pb-10 border-l border-border last:pb-0">
+                    <span className="absolute -left-[7px] top-2 size-3 rounded-full bg-foreground ring-4 ring-background" />
+                    <h3 className="font-semibold text-lg">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground mt-1">{item.sub}</p>
+                    <ul className="mt-3 space-y-1.5 text-sm text-foreground/80 list-disc pl-5">
+                      {item.points.map((p) => <li key={p}>{p}</li>)}
+                    </ul>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
+            <div className="mt-6">
+              <h3 className="font-display text-2xl md:text-3xl uppercase">Technical Skills</h3>
+              <div className="mt-2 border-t border-border" />
+              <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                {Object.entries(skills).map(([cat, list], i) => (
+                  <Reveal key={cat} direction="right" delay={`reveal-delay-${Math.min(i + 1, 4)}`}>
+                    <div>
+                      <p className="text-sm text-muted-foreground mb-3">{cat}:</p>
+                      <div className="flex flex-wrap gap-2">
+                        {list.map((s) => (
+                          <span key={s} className="px-3 py-1 rounded-md border border-border bg-secondary text-sm">{s}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* ── CONTACT ── */}
       <section id="contact" className="scroll-mt-24 px-8 md:px-14 pt-24 pb-20 max-w-6xl mx-auto w-full">
-        <div className="text-center">
-          <h2 className="font-display text-5xl md:text-7xl uppercase">Let's Connect</h2>
-          <p className="mt-4 text-muted-foreground text-lg">
+        <Reveal direction="up">
+          <div className="text-center">
+            <h2 className="font-display text-5xl md:text-7xl uppercase">Let's Connect</h2>
+          </div>
+        </Reveal>
+        <Reveal direction="up" delay="reveal-delay-1">
+          <p className="mt-4 text-muted-foreground text-lg text-center">
             Reach out for collaborations, internships, or just to say hello.
           </p>
-        </div>
+        </Reveal>
         <ContactForm />
       </section>
     </>
@@ -221,39 +281,43 @@ function ContactForm() {
 
   return (
     <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
-      <div className="space-y-7">
-        <Row icon={<Phone className="size-5" />} label="Phone" value="+91 92914 93225" href="tel:+919291493225" />
-        <Row icon={<Mail className="size-5" />} label="Email" value="sampathlox@gmail.com" href="mailto:sampathlox@gmail.com" />
-        <Row icon={<MapPin className="size-5" />} label="Location" value="Visakhapatnam, Andhra Pradesh, India" />
-        <div className="flex items-center gap-3 pt-6">
-          <Social href="https://linkedin.com/in/sampath1904"><Linkedin className="size-5" /></Social>
-          <span className="text-muted-foreground">–</span>
-          <Social href="https://github.com/Sampath0411"><Github className="size-5" /></Social>
-          <span className="text-muted-foreground">–</span>
-          <Social href="https://instagram.com/_exotic_sampath.56"><Instagram className="size-5" /></Social>
+      <Reveal direction="left" delay="reveal-delay-2">
+        <div className="space-y-7">
+          <Row icon={<Phone className="size-5" />} label="Phone" value="+91 92914 93225" href="tel:+919291493225" />
+          <Row icon={<Mail className="size-5" />} label="Email" value="sampathlox@gmail.com" href="mailto:sampathlox@gmail.com" />
+          <Row icon={<MapPin className="size-5" />} label="Location" value="Visakhapatnam, Andhra Pradesh, India" />
+          <div className="flex items-center gap-3 pt-6">
+            <Social href="https://linkedin.com/in/sampath1904"><Linkedin className="size-5" /></Social>
+            <span className="text-muted-foreground">–</span>
+            <Social href="https://github.com/Sampath0411"><Github className="size-5" /></Social>
+            <span className="text-muted-foreground">–</span>
+            <Social href="https://instagram.com/_exotic_sampath.56"><Instagram className="size-5" /></Social>
+          </div>
         </div>
-      </div>
-      <form
-        onSubmit={(e) => { e.preventDefault(); setSent(true); }}
-        className="space-y-4"
-      >
-        <Field name="name" placeholder="Name" />
-        <Field name="email" type="email" placeholder="Email" />
-        <Field name="subject" placeholder="Subject" />
-        <textarea
-          name="message"
-          placeholder="Message"
-          required
-          rows={5}
-          className="w-full rounded-md border border-border bg-transparent px-4 py-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none"
-        />
-        <button
-          type="submit"
-          className="w-full rounded-md bg-primary text-primary-foreground font-display tracking-wider uppercase py-3.5 text-sm hover:opacity-90 transition-opacity"
+      </Reveal>
+      <Reveal direction="right" delay="reveal-delay-3">
+        <form
+          onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+          className="space-y-4"
         >
-          {sent ? "Message Sent — Thanks!" : "Send Message"}
-        </button>
-      </form>
+          <Field name="name" placeholder="Name" />
+          <Field name="email" type="email" placeholder="Email" />
+          <Field name="subject" placeholder="Subject" />
+          <textarea
+            name="message"
+            placeholder="Message"
+            required
+            rows={5}
+            className="w-full rounded-md border border-border bg-transparent px-4 py-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none"
+          />
+          <button
+            type="submit"
+            className="w-full rounded-md bg-primary text-primary-foreground font-display tracking-wider uppercase py-3.5 text-sm hover:opacity-90 transition-opacity"
+          >
+            {sent ? "Message Sent — Thanks!" : "Send Message"}
+          </button>
+        </form>
+      </Reveal>
     </div>
   );
 }
