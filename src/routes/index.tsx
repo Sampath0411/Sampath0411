@@ -59,13 +59,13 @@ const timeline = [
     sub: "Andhra University, Visakhapatnam · 2025 – 2029",
     points: [
       "Coursework: Data Structures in C, OOP, upcoming Computer Networks",
-      "Shipping 6+ production projects in first year rather than waiting to graduate",
+      "Shipping 10+ production projects across two years rather than waiting to graduate",
     ],
   },
   {
     tag: "AI & Automation",
     title: "AI Innovation Challenge — Builder & Startup Events 2025",
-    sub: "Live demo as a first-year against more experienced competitors",
+    sub: "Live demo as a second-year against more experienced competitors",
     points: [
       "Telegram bot that remotely controls a PC, generates PDF notes, analyses photos",
       "WhatsApp + Gmail integrations; integrated 5+ third-party APIs across projects",
@@ -150,7 +150,7 @@ function Home() {
             </Reveal>
             <Reveal direction="up" delay="reveal-delay-2">
               <p className="mt-6 text-sm md:text-base text-muted-foreground max-w-lg leading-relaxed">
-                First-year CSE student shipping production-grade projects — student management systems, campus food apps, and event platforms with real features and real users in mind.
+                Second-year CSE student shipping production-grade projects — student management systems, campus food apps, and event platforms with real features and real users in mind.
               </p>
             </Reveal>
             <Reveal direction="up" delay="reveal-delay-3">
