@@ -140,7 +140,7 @@ function Home() {
           <div className="max-w-2xl">
             <Reveal direction="up" speed="reveal-slow">
               <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.92] uppercase">
-                Sampath<br />Saran
+                Sampath<VerifiedBadge /><br />Saran
               </h1>
             </Reveal>
             <Reveal direction="up" delay="reveal-delay-1">
@@ -350,5 +350,29 @@ function Field(props: React.InputHTMLAttributes<HTMLInputElement>) {
       {...props}
       className="w-full rounded-md border border-border bg-transparent px-4 py-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
     />
+  );
+}
+
+function VerifiedBadge() {
+  return (
+    <span className="inline-flex items-center justify-center ml-2 align-middle" title="Verified">
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="inline-block"
+      >
+        <circle cx="12" cy="12" r="11" fill="#1DA1F2" />
+        <path
+          d="M7 12.5L10.5 16L17 9"
+          stroke="white"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </span>
   );
 }
