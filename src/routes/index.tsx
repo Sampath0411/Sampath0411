@@ -360,44 +360,66 @@ function VerifiedBadge() {
       title="Verified"
     >
       <svg
-        width="26"
-        height="26"
-        viewBox="0 0 512 512"
+        width="28"
+        height="28"
+        viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
         className="inline-block"
       >
         <defs>
-          {/* Blue gradient for 3D sphere effect */}
-          <radialGradient id="badgeSphere" cx="35%" cy="35%" r="60%" fx="30%" fy="30%">
-            <stop offset="0%" stopColor="#5BDAFF" />
-            <stop offset="40%" stopColor="#3A9FE0" />
-            <stop offset="100%" stopColor="#1A73E8" />
+          {/* Radial gradient for 3D sphere look */}
+          <radialGradient id="sphereGrad" cx="38%" cy="35%" r="55%" fx="30%" fy="28%">
+            <stop offset="0%" stopColor="#7DD3FC" />
+            <stop offset="35%" stopColor="#38BDF8" />
+            <stop offset="70%" stopColor="#0EA5E9" />
+            <stop offset="100%" stopColor="#0369A1" />
           </radialGradient>
-          {/* Glossy highlight */}
-          <radialGradient id="badgeGloss" cx="30%" cy="25%" r="50%">
-            <stop offset="0%" stopColor="white" stopOpacity="0.4" />
+          {/* Glossy top highlight */}
+          <radialGradient id="glossGrad" cx="35%" cy="25%" r="45%">
+            <stop offset="0%" stopColor="white" stopOpacity="0.55" />
+            <stop offset="60%" stopColor="white" stopOpacity="0.08" />
             <stop offset="100%" stopColor="white" stopOpacity="0" />
           </radialGradient>
+          {/* Spoke glow gradient */}
+          <radialGradient id="spokeGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="45%" stopColor="#38BDF8" stopOpacity="0" />
+            <stop offset="60%" stopColor="#7DD3FC" stopOpacity="0.3" />
+            <stop offset="100%" stopColor="#38BDF8" stopOpacity="0" />
+          </radialGradient>
           {/* Drop shadow */}
-          <filter id="badgeShadow" x="-10%" y="-10%" width="130%" height="130%">
-            <feDropShadow dx="0" dy="2" stdDeviation="4" floodColor="#1A73E8" floodOpacity="0.4" />
+          <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="1" stdDeviation="2" floodColor="#0369A1" floodOpacity="0.5" />
           </filter>
         </defs>
 
-        {/* Outer rounded square with shadow */}
-        <rect x="12" y="12" width="488" height="488" rx="120" ry="120" fill="url(#badgeSphere)" filter="url(#badgeShadow)" />
+        {/* ── Radiating spokes / light rays ── */}
+        {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((angle) => (
+          <ellipse
+            key={angle}
+            cx="50"
+            cy="50"
+            rx="46"
+            ry="10"
+            fill="url(#spokeGlow)"
+            transform={`rotate(${angle} 50 50)`}
+            opacity="0.7"
+          />
+        ))}
 
-        {/* Glossy highlight overlay */}
-        <rect x="12" y="12" width="488" height="488" rx="120" ry="120" fill="url(#badgeGloss)" />
+        {/* ── Main circle badge ── */}
+        <circle cx="50" cy="50" r="42" fill="url(#sphereGrad)" filter="url(#shadow)" />
 
-        {/* Inner subtle border */}
-        <rect x="12" y="12" width="488" height="488" rx="120" ry="120" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="4" />
+        {/* Glossy highlight */}
+        <circle cx="50" cy="50" r="42" fill="url(#glossGrad)" />
 
-        {/* White checkmark — thick bold strokes */}
+        {/* Subtle inner ring */}
+        <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="1.5" />
+
+        {/* ── White checkmark ── */}
         <path
-          d="M140 260 L220 340 L372 170"
+          d="M30 52 L44 66 L72 36"
           stroke="white"
-          strokeWidth="52"
+          strokeWidth="7"
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="none"
