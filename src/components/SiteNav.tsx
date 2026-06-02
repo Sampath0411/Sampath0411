@@ -1,29 +1,51 @@
-import { Link } from "@tanstack/react-router";
+import { useState, useEffect } from "react";
 
 const links = [
-  { to: "/", label: "HOME" },
-  { to: "/projects", label: "PROJECTS" },
-  { to: "/about", label: "ABOUT" },
-  { to: "/contact", label: "CONTACT" },
+  { to: "home", label: "HOME" },
+  { to: "projects", label: "PROJECTS" },
+  { to: "about", label: "ABOUT" },
+  { to: "contact", label: "CONTACT" },
 ] as const;
 
 export function SiteNav() {
+  const [active, setActive] = useState("home");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px" }
+    );
+
+    links.forEach(({ to }) => {
+      const el = document.getElementById(to);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <header className="absolute top-0 left-0 right-0 z-20 px-8 md:px-14 py-7 flex items-center justify-between">
-      <Link to="/" className="font-display text-sm tracking-wider uppercase">
+    <header className="fixed top-0 left-0 right-0 z-50 px-8 md:px-14 py-7 flex items-center justify-between bg-background/80 backdrop-blur-md border-b border-border/40">
+      <a href="#home" className="font-display text-sm tracking-wider uppercase hover:opacity-80 transition-opacity">
         Sampath Satya Saran
-      </Link>
+      </a>
       <nav className="flex items-center gap-7 md:gap-10">
         {links.map((l) => (
-          <Link
+          <a
             key={l.to}
-            to={l.to}
-            className="text-sm tracking-[0.12em] text-muted-foreground hover:text-foreground transition-colors"
-            activeProps={{ className: "text-foreground font-semibold" }}
-            activeOptions={{ exact: true }}
+            href={`#${l.to}`}
+            className={`text-sm tracking-[0.12em] transition-colors ${
+              active === l.to ? "text-foreground font-semibold" : "text-muted-foreground hover:text-foreground"
+            }`}
           >
             {l.label}
-          </Link>
+          </a>
         ))}
       </nav>
     </header>
