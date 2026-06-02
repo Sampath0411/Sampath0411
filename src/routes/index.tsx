@@ -140,7 +140,7 @@ function Home() {
           <div className="max-w-2xl">
             <Reveal direction="up" speed="reveal-slow">
               <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.92] uppercase">
-                Sampath<VerifiedBadge /><br />Saran
+                Sampath Satya Saran<VerifiedBadge />
               </h1>
             </Reveal>
             <Reveal direction="up" delay="reveal-delay-1">
@@ -355,20 +355,31 @@ function Field(props: React.InputHTMLAttributes<HTMLInputElement>) {
 
 function VerifiedBadge() {
   return (
-    <span className="inline-flex items-center justify-center ml-2 align-middle" title="Verified">
+    <span
+      className="inline-flex items-center justify-center ml-3 align-middle"
+      title="Verified"
+      style={{ filter: "drop-shadow(0 0 6px rgba(29,161,242,0.5))" }}
+    >
       <svg
-        width="22"
-        height="22"
+        width="24"
+        height="24"
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="inline-block"
       >
-        <circle cx="12" cy="12" r="11" fill="#1DA1F2" />
+        <defs>
+          <linearGradient id="badgeGrad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#1DA1F2" />
+            <stop offset="100%" stopColor="#0D8BD9" />
+          </linearGradient>
+        </defs>
+        <circle cx="12" cy="12" r="11" fill="url(#badgeGrad)" />
+        <circle cx="12" cy="12" r="11" stroke="rgba(255,255,255,0.2)" strokeWidth="0.5" />
         <path
-          d="M7 12.5L10.5 16L17 9"
+          d="M7.5 12.5L10.5 15.5L16.5 8.5"
           stroke="white"
-          strokeWidth="2.5"
+          strokeWidth="2.2"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
