@@ -254,6 +254,39 @@ function Home() {
         </div>
       </section>
 
+      {/* ── GITHUB CONTRIBUTIONS ── */}
+      <section className="py-12 border-b border-border">
+        <div className="max-w-6xl mx-auto px-6 md:px-14">
+          <Reveal direction="up">
+            <h3 className="font-mono text-sm text-accent-blue mb-6 text-center tracking-wider uppercase">GitHub Activity</h3>
+          </Reveal>
+          <Reveal direction="up" delay="reveal-delay-1">
+            <div className="rounded-xl border border-border bg-card/50 p-4 overflow-hidden">
+              <img
+                src="https://github-readme-stats.vercel.app/api?username=Sampath0411&show_icons=true&theme=github_dark&hide_border=true&count_private=true&include_all_commits=true"
+                alt="GitHub Contribution Stats"
+                className="w-full h-auto"
+                loading="lazy"
+              />
+              <div className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3">
+                <img
+                  src="https://github-readme-stats.vercel.app/api/top-langs/?username=Sampath0411&layout=compact&theme=github_dark&hide_border=true"
+                  alt="Top Languages"
+                  className="w-full h-auto"
+                  loading="lazy"
+                />
+                <img
+                  src="https://github-readme-streak-stats.herokuapp.com/?user=Sampath0411&theme=github_dark&hide_border=true"
+                  alt="GitHub Streak"
+                  className="w-full h-auto"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ── ABOUT ME ── */}
       <section id="about" className="scroll-mt-24 px-6 md:px-14 pt-24 pb-10 max-w-6xl mx-auto w-full">
         <Reveal direction="up">

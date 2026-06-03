@@ -171,8 +171,16 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-border mt-auto px-8 md:px-14 py-8">
       <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-        <span>© 2026 Sampath Satya Saran. Built with <span className="heart-beat">♥</span></span>
-        <span className="font-mono text-[10px] tracking-wider opacity-60">React · TypeScript · Supabase · Tailwind CSS</span>
+        <div className="flex items-center gap-3">
+          <span>© 2026 Sampath Satya Saran. Built with <span className="heart-beat">♥</span></span>
+          <img
+            src="https://visitor-badge.laobi.icu/badge?page_id=Sampath0411.portfolio&style=flat-square&color=3B82F6"
+            alt="Page views"
+            className="h-4"
+            loading="lazy"
+          />
+        </div>
+        <span className="font-mono text-xs tracking-wider opacity-60">React · TypeScript · Supabase · Tailwind CSS</span>
         <div className="flex items-center gap-4">
           <a href="https://linkedin.com/in/sampath1904" target="_blank" rel="noreferrer" className="hover:text-accent-blue transition-colors">LinkedIn</a>
           <a href="https://github.com/Sampath0411" target="_blank" rel="noreferrer" className="hover:text-accent-blue transition-colors">GitHub</a>
