@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Code2, Palette } from "lucide-react";
+import { Code2 } from "lucide-react";
 import sampath from "@/assets/sampath.jpg";
 
 const DEV_SITE_URL = "https://samxeditz-56.vercel.app/";
@@ -16,7 +16,6 @@ export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
   const [heroVisible, setHeroVisible] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [devMode, setDevMode] = useState(false);
   const heroRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -52,7 +51,6 @@ export function SiteNav() {
     return () => observer.disconnect();
   }, []);
 
-  // Lock body scroll when mobile nav is open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -68,6 +66,7 @@ export function SiteNav() {
 
   return (
     <>
+      {/* ── Desktop + Mobile Navbar ── */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 px-6 md:px-14 flex items-center justify-between transition-all duration-500 ${
           scrolled
@@ -111,7 +110,7 @@ export function SiteNav() {
           </a>
         </div>
 
-        {/* Right side: Nav links + Mode Toggle */}
+        {/* Right side: Nav links + Mode Toggle (desktop only) */}
         <div className="hidden md:flex items-center gap-5 md:gap-7">
           <nav className="flex items-center gap-7 md:gap-10">
             {links.map((l) => (
@@ -132,7 +131,7 @@ export function SiteNav() {
             ))}
           </nav>
 
-          {/* Mode Toggle — right side, Dev default */}
+          {/* Mode Toggle — desktop right side */}
           <div className="mode-toggle" id="modeToggle">
             <button className="mode-btn" id="editzBtn" onClick={() => switchMode('editz')}>Editz</button>
             <button className="mode-btn active" id="devBtn" onClick={() => switchMode('dev')}>Dev<span className="dev-indicator" /></button>
@@ -140,8 +139,17 @@ export function SiteNav() {
         </div>
       </header>
 
+      {/* ── Mobile: Floating Editor Toggle (right side, outside navbar) ── */}
+      <a
+        href={DEV_SITE_URL}
+        className="md:hidden fixed top-4 right-4 z-50 flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[10px] font-mono tracking-wider uppercase bg-accent-blue/15 border border-accent-blue/30 text-accent-blue backdrop-blur-sm"
+        title="Go to Editor"
+      >
+        <Code2 className="size-3" />
+        <span>Editor</span>
+      </a>
 
-      {/* Mobile nav overlay */}
+      {/* ── Mobile Nav Overlay ── */}
       <div
         className={`mobile-nav fixed inset-0 z-40 bg-background/95 backdrop-blur-lg flex flex-col items-center justify-center gap-8 md:hidden ${
           mobileOpen ? "open" : ""
@@ -164,14 +172,6 @@ export function SiteNav() {
             {l.label}
           </a>
         ))}
-        {/* Editor link in mobile nav */}
-        <a
-          href={DEV_SITE_URL}
-          className="flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-mono tracking-wider uppercase border bg-accent-blue/10 border-accent-blue/40 text-accent-blue"
-        >
-          <Code2 className="size-4" />
-          <span>Editor</span>
-        </a>
         <div className="flex items-center gap-5 mt-4">
           <a href="https://linkedin.com/in/sampath1904" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-accent-blue transition-colors">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
