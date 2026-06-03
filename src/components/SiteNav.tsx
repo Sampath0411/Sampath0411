@@ -1,5 +1,8 @@
 import { useState, useEffect, useRef } from "react";
+import { Code2, Palette } from "lucide-react";
 import sampath from "@/assets/sampath.jpg";
+
+const DEV_SITE_URL = "https://samxeditz-56.vercel.app/";
 
 const links = [
   { to: "home", label: "HOME" },
@@ -13,6 +16,7 @@ export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
   const [heroVisible, setHeroVisible] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [devMode, setDevMode] = useState(false);
   const heroRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -114,6 +118,26 @@ export function SiteNav() {
               />
             </a>
           ))}
+
+          {/* Dev Mode Toggle */}
+          <button
+            onClick={() => {
+              if (devMode) {
+                setDevMode(false);
+              } else {
+                window.location.href = DEV_SITE_URL;
+              }
+            }}
+            className={`relative flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-mono tracking-wider uppercase transition-all duration-300 border ${
+              devMode
+                ? "bg-accent-blue/10 border-accent-blue/40 text-accent-blue"
+                : "bg-transparent border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"
+            }`}
+            title="Switch to Editor site"
+          >
+            <Code2 className="size-3.5" />
+            <span>Editor</span>
+          </button>
         </nav>
 
         {/* Mobile hamburger */}
