@@ -101,44 +101,37 @@ export function SiteNav() {
         </div>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-7 md:gap-10">
-          {links.map((l) => (
-            <a
-              key={l.to}
-              href={`#${l.to}`}
-              className={`relative text-sm tracking-[0.12em] transition-colors duration-300 ${
-                active === l.to ? "text-foreground font-semibold" : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              {l.label}
-              <span
-                className={`absolute -bottom-1 left-0 h-[2px] bg-foreground transition-all duration-300 ease-out ${
-                  active === l.to ? "w-full" : "w-0"
+        <div className="hidden md:flex items-center gap-7 md:gap-10">
+          <nav className="flex items-center gap-7 md:gap-10">
+            {links.map((l) => (
+              <a
+                key={l.to}
+                href={`#${l.to}`}
+                className={`relative text-sm tracking-[0.12em] transition-colors duration-300 ${
+                  active === l.to ? "text-foreground font-semibold" : "text-muted-foreground hover:text-foreground"
                 }`}
-              />
-            </a>
-          ))}
+              >
+                {l.label}
+                <span
+                  className={`absolute -bottom-1 left-0 h-[2px] bg-foreground transition-all duration-300 ease-out ${
+                    active === l.to ? "w-full" : "w-0"
+                  }`}
+                />
+              </a>
+            ))}
+          </nav>
 
-          {/* Dev Mode Toggle */}
-          <button
-            onClick={() => {
-              if (devMode) {
-                setDevMode(false);
-              } else {
-                window.location.href = DEV_SITE_URL;
-              }
-            }}
-            className={`relative flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-mono tracking-wider uppercase transition-all duration-300 border ${
-              devMode
-                ? "bg-accent-blue/10 border-accent-blue/40 text-accent-blue"
-                : "bg-transparent border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"
-            }`}
-            title="Switch to Editor site"
+          {/* Editor Toggle */}
+          <a
+            href={DEV_SITE_URL}
+            className="relative flex items-center gap-2 rounded-full px-4 py-2 text-xs font-mono tracking-wider uppercase transition-all duration-300 border bg-accent-blue/10 border-accent-blue/40 text-accent-blue hover:bg-accent-blue/20"
+            title="Go to Editor site"
           >
             <Code2 className="size-3.5" />
             <span>Editor</span>
-          </button>
-        </nav>
+            <span className="absolute -top-1 -right-1 size-2 rounded-full bg-accent-blue animate-pulse" />
+          </a>
+        </div>
 
         {/* Mobile hamburger */}
         <button
@@ -175,6 +168,14 @@ export function SiteNav() {
             {l.label}
           </a>
         ))}
+        {/* Editor link in mobile nav */}
+        <a
+          href={DEV_SITE_URL}
+          className="flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-mono tracking-wider uppercase border bg-accent-blue/10 border-accent-blue/40 text-accent-blue"
+        >
+          <Code2 className="size-4" />
+          <span>Editor</span>
+        </a>
         <div className="flex items-center gap-5 mt-4">
           <a href="https://linkedin.com/in/sampath1904" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-accent-blue transition-colors">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
