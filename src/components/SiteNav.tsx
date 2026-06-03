@@ -141,57 +141,6 @@ export function SiteNav() {
         </nav>
       </header>
 
-      {/* Mode Toggle Styles */}
-      <style dangerouslySetInnerHTML={{ __html: `
-        .mode-toggle {
-          display: flex;
-          background: rgba(255,255,255,0.05);
-          border: 1px solid rgba(255,255,255,0.1);
-          border-radius: 20px;
-          padding: 2px;
-          gap: 2px;
-        }
-        .mode-btn {
-          padding: 6px 14px;
-          border-radius: 18px;
-          border: none;
-          font-family: 'JetBrains Mono', monospace;
-          font-size: 11px;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
-          cursor: pointer;
-          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-          background: transparent;
-          color: rgba(255,255,255,0.5);
-          position: relative;
-        }
-        .mode-btn:hover {
-          color: rgba(255,255,255,0.8);
-        }
-        .mode-btn.active {
-          background: rgba(59, 130, 246, 0.2);
-          color: #60A5FA;
-          box-shadow: 0 0 12px rgba(59, 130, 246, 0.15);
-        }
-        .dev-indicator {
-          display: inline-block;
-          width: 6px;
-          height: 6px;
-          border-radius: 50%;
-          background: #22C55E;
-          margin-left: 4px;
-          vertical-align: middle;
-          animation: devPulse 2s ease-in-out infinite;
-        }
-        @keyframes devPulse {
-          0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
-          50% { opacity: 0.7; box-shadow: 0 0 0 4px rgba(34, 197, 94, 0); }
-        }
-        @media (max-width: 768px) {
-          .mode-btn { padding: 5px 10px; font-size: 10px; }
-        }
-      ` }} />
 
       {/* Mobile nav overlay */}
       <div
