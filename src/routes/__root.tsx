@@ -92,7 +92,43 @@ function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
       <head><HeadContent /></head>
-      <body>{children}<Scripts /></body>
+      <body>
+        <script dangerouslySetInnerHTML={{ __html: `
+          const EDITZ_URL = 'https://samxeditz-56.vercel.app/';
+          const DEV_URL = 'https://sampath-portfolio0411.vercel.app/';
+
+          function switchMode(mode) {
+            if (mode === 'editz') {
+              document.getElementById('editzBtn').classList.add('active');
+              document.getElementById('devBtn').classList.remove('active');
+              localStorage.setItem('siteMode', 'editz');
+              window.location.href = EDITZ_URL;
+            } else {
+              document.getElementById('editzBtn').classList.remove('active');
+              document.getElementById('devBtn').classList.add('active');
+              localStorage.setItem('siteMode', 'dev');
+              window.location.href = DEV_URL;
+            }
+          }
+
+          (function() {
+            var saved = localStorage.getItem('siteMode');
+            if (saved === 'dev') {
+              var devBtn = document.getElementById('devBtn');
+              var editzBtn = document.getElementById('editzBtn');
+              if (devBtn) devBtn.classList.add('active');
+              if (editzBtn) editzBtn.classList.remove('active');
+            } else {
+              var editzBtn2 = document.getElementById('editzBtn');
+              var devBtn2 = document.getElementById('devBtn');
+              if (editzBtn2) editzBtn2.classList.add('active');
+              if (devBtn2) devBtn2.classList.remove('active');
+            }
+          })();
+        ` }} />
+        {children}
+        <Scripts />
+      </body>
     </html>
   );
 }

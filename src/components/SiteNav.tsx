@@ -75,8 +75,28 @@ export function SiteNav() {
             : "bg-transparent py-7"
         }`}
       >
-        {/* Left: Floating profile pic + name */}
-        <div className="flex items-center gap-3 overflow-hidden">
+        {/* Left: Hamburger + Mode Toggle */}
+        <div className="flex items-center gap-3">
+          {/* Mobile hamburger — moved to left */}
+          <button
+            className={`md:hidden relative z-50 w-8 h-8 flex flex-col items-center justify-center gap-1.5 ${mobileOpen ? "hamburger-open" : ""}`}
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            <span className="hamburger-line" />
+            <span className="hamburger-line" />
+            <span className="hamburger-line" />
+          </button>
+
+          {/* Mode Toggle — visible on all screens */}
+          <div className="mode-toggle" id="modeToggle">
+            <button className="mode-btn active" id="editzBtn" onClick={() => switchMode('editz')}>Editz</button>
+            <button className="mode-btn" id="devBtn" onClick={() => switchMode('dev')}>Dev<span className="dev-indicator" /></button>
+          </div>
+        </div>
+
+        {/* Center: Floating profile pic + name */}
+        <div className="flex items-center gap-3 overflow-hidden absolute left-1/2 -translate-x-1/2">
           <div
             className={`rounded-full overflow-hidden transition-all duration-700 ease-out flex-shrink-0 ${
               showFloat
@@ -100,50 +120,78 @@ export function SiteNav() {
           </a>
         </div>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-7 md:gap-10">
-          <nav className="flex items-center gap-7 md:gap-10">
-            {links.map((l) => (
-              <a
-                key={l.to}
-                href={`#${l.to}`}
-                className={`relative text-sm tracking-[0.12em] transition-colors duration-300 ${
-                  active === l.to ? "text-foreground font-semibold" : "text-muted-foreground hover:text-foreground"
+        {/* Desktop nav — right side */}
+        <nav className="hidden md:flex items-center gap-7 md:gap-10">
+          {links.map((l) => (
+            <a
+              key={l.to}
+              href={`#${l.to}`}
+              className={`relative text-sm tracking-[0.12em] transition-colors duration-300 ${
+                active === l.to ? "text-foreground font-semibold" : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {l.label}
+              <span
+                className={`absolute -bottom-1 left-0 h-[2px] bg-foreground transition-all duration-300 ease-out ${
+                  active === l.to ? "w-full" : "w-0"
                 }`}
-              >
-                {l.label}
-                <span
-                  className={`absolute -bottom-1 left-0 h-[2px] bg-foreground transition-all duration-300 ease-out ${
-                    active === l.to ? "w-full" : "w-0"
-                  }`}
-                />
-              </a>
-            ))}
-          </nav>
-
-          {/* Editor Toggle */}
-          <a
-            href={DEV_SITE_URL}
-            className="relative flex items-center gap-2 rounded-full px-4 py-2 text-xs font-mono tracking-wider uppercase transition-all duration-300 border bg-accent-blue/10 border-accent-blue/40 text-accent-blue hover:bg-accent-blue/20"
-            title="Go to Editor site"
-          >
-            <Code2 className="size-3.5" />
-            <span>Editor</span>
-            <span className="absolute -top-1 -right-1 size-2 rounded-full bg-accent-blue animate-pulse" />
-          </a>
-        </div>
-
-        {/* Mobile hamburger */}
-        <button
-          className={`md:hidden relative z-50 w-8 h-8 flex flex-col items-center justify-center gap-1.5 ${mobileOpen ? "hamburger-open" : ""}`}
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          <span className="hamburger-line" />
-          <span className="hamburger-line" />
-          <span className="hamburger-line" />
-        </button>
+              />
+            </a>
+          ))}
+        </nav>
       </header>
+
+      {/* Mode Toggle Styles */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        .mode-toggle {
+          display: flex;
+          background: rgba(255,255,255,0.05);
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 20px;
+          padding: 2px;
+          gap: 2px;
+        }
+        .mode-btn {
+          padding: 6px 14px;
+          border-radius: 18px;
+          border: none;
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 11px;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          cursor: pointer;
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          background: transparent;
+          color: rgba(255,255,255,0.5);
+          position: relative;
+        }
+        .mode-btn:hover {
+          color: rgba(255,255,255,0.8);
+        }
+        .mode-btn.active {
+          background: rgba(59, 130, 246, 0.2);
+          color: #60A5FA;
+          box-shadow: 0 0 12px rgba(59, 130, 246, 0.15);
+        }
+        .dev-indicator {
+          display: inline-block;
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: #22C55E;
+          margin-left: 4px;
+          vertical-align: middle;
+          animation: devPulse 2s ease-in-out infinite;
+        }
+        @keyframes devPulse {
+          0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+          50% { opacity: 0.7; box-shadow: 0 0 0 4px rgba(34, 197, 94, 0); }
+        }
+        @media (max-width: 768px) {
+          .mode-btn { padding: 5px 10px; font-size: 10px; }
+        }
+      ` }} />
 
       {/* Mobile nav overlay */}
       <div
