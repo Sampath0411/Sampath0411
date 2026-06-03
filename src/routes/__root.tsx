@@ -113,16 +113,16 @@ function RootShell({ children }: { children: ReactNode }) {
 
           (function() {
             var saved = localStorage.getItem('siteMode');
-            if (saved === 'dev') {
-              var devBtn = document.getElementById('devBtn');
-              var editzBtn = document.getElementById('editzBtn');
-              if (devBtn) devBtn.classList.add('active');
-              if (editzBtn) editzBtn.classList.remove('active');
-            } else {
+            if (saved === 'editz') {
               var editzBtn2 = document.getElementById('editzBtn');
               var devBtn2 = document.getElementById('devBtn');
               if (editzBtn2) editzBtn2.classList.add('active');
               if (devBtn2) devBtn2.classList.remove('active');
+            } else {
+              var devBtn = document.getElementById('devBtn');
+              var editzBtn = document.getElementById('editzBtn');
+              if (devBtn) devBtn.classList.add('active');
+              if (editzBtn) editzBtn.classList.remove('active');
             }
           })();
         ` }} />

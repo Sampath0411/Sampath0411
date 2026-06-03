@@ -75,25 +75,16 @@ export function SiteNav() {
             : "bg-transparent py-7"
         }`}
       >
-        {/* Left: Hamburger + Mode Toggle */}
-        <div className="flex items-center gap-3">
-          {/* Mobile hamburger — moved to left */}
-          <button
-            className={`md:hidden relative z-50 w-8 h-8 flex flex-col items-center justify-center gap-1.5 ${mobileOpen ? "hamburger-open" : ""}`}
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            <span className="hamburger-line" />
-            <span className="hamburger-line" />
-            <span className="hamburger-line" />
-          </button>
-
-          {/* Mode Toggle — visible on all screens */}
-          <div className="mode-toggle" id="modeToggle">
-            <button className="mode-btn active" id="editzBtn" onClick={() => switchMode('editz')}>Editz</button>
-            <button className="mode-btn" id="devBtn" onClick={() => switchMode('dev')}>Dev<span className="dev-indicator" /></button>
-          </div>
-        </div>
+        {/* Left: Mobile hamburger */}
+        <button
+          className={`md:hidden relative z-50 w-8 h-8 flex flex-col items-center justify-center gap-1.5 ${mobileOpen ? "hamburger-open" : ""}`}
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle menu"
+        >
+          <span className="hamburger-line" />
+          <span className="hamburger-line" />
+          <span className="hamburger-line" />
+        </button>
 
         {/* Center: Floating profile pic + name */}
         <div className="flex items-center gap-3 overflow-hidden absolute left-1/2 -translate-x-1/2">
@@ -120,25 +111,33 @@ export function SiteNav() {
           </a>
         </div>
 
-        {/* Desktop nav — right side */}
-        <nav className="hidden md:flex items-center gap-7 md:gap-10">
-          {links.map((l) => (
-            <a
-              key={l.to}
-              href={`#${l.to}`}
-              className={`relative text-sm tracking-[0.12em] transition-colors duration-300 ${
-                active === l.to ? "text-foreground font-semibold" : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              {l.label}
-              <span
-                className={`absolute -bottom-1 left-0 h-[2px] bg-foreground transition-all duration-300 ease-out ${
-                  active === l.to ? "w-full" : "w-0"
+        {/* Right side: Nav links + Mode Toggle */}
+        <div className="hidden md:flex items-center gap-5 md:gap-7">
+          <nav className="flex items-center gap-7 md:gap-10">
+            {links.map((l) => (
+              <a
+                key={l.to}
+                href={`#${l.to}`}
+                className={`relative text-sm tracking-[0.12em] transition-colors duration-300 ${
+                  active === l.to ? "text-foreground font-semibold" : "text-muted-foreground hover:text-foreground"
                 }`}
-              />
-            </a>
-          ))}
-        </nav>
+              >
+                {l.label}
+                <span
+                  className={`absolute -bottom-1 left-0 h-[2px] bg-foreground transition-all duration-300 ease-out ${
+                    active === l.to ? "w-full" : "w-0"
+                  }`}
+                />
+              </a>
+            ))}
+          </nav>
+
+          {/* Mode Toggle — right side, Dev default */}
+          <div className="mode-toggle" id="modeToggle">
+            <button className="mode-btn" id="editzBtn" onClick={() => switchMode('editz')}>Editz</button>
+            <button className="mode-btn active" id="devBtn" onClick={() => switchMode('dev')}>Dev<span className="dev-indicator" /></button>
+          </div>
+        </div>
       </header>
 
 
