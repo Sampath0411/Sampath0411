@@ -144,6 +144,10 @@
                 <div class="checkpoint-dot"></div>
                 <span class="checkpoint-label">About</span>
             </div>
+            <div class="checkpoint" data-section="achievements">
+                <div class="checkpoint-dot"></div>
+                <span class="checkpoint-label">Achievements</span>
+            </div>
             <div class="checkpoint" data-section="experience">
                 <div class="checkpoint-dot"></div>
                 <span class="checkpoint-label">Projects</span>
@@ -164,6 +168,7 @@
             <div class="nav-right">
                 <a href="#hero" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About</a>
+                <a href="#achievements" class="nav-link">Achievements</a>
                 <a href="#experience" class="nav-link">Projects</a>
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#contact" class="nav-cta">Let's Talk!</a>
@@ -179,8 +184,12 @@
             <div class="hero-left">
                 <p class="hero-greeting" id="hero-greeting">Hey! 👋</p>
                 <h1 class="hero-name">I'm Sampath Satya Saran.</h1>
+                <a href="#achievements" class="hero-badge">
+                    <i class="fas fa-award"></i>
+                    <span>Campus Ambassador @ <strong>Unlox</strong> · Bengaluru</span>
+                </a>
                 <p class="hero-description">
-                    First-year BTech CSE student at <span class="highlight highlight-yellow">Andhra University, Visakhapatnam</span> (2025–2029). I'm a multi-dimensional builder — photographer, designer, and developer — with a strong focus on <span class="highlight highlight-cyan">animated UI/UX and branding</span>. I build startup-scale solutions relevant to Indian daily life.
+                    Second-year BTech CSE student at <span class="highlight highlight-yellow">Andhra University, Visakhapatnam</span> (2025–2029). I'm a multi-dimensional builder — photographer, designer, and developer — with a strong focus on <span class="highlight highlight-cyan">animated UI/UX and branding</span>. I build startup-scale solutions relevant to Indian daily life.
                 </p>
                 <div class="hero-social">
                     <a href="https://github.com/Sampath0411" target="_blank" class="social-btn" title="GitHub">
@@ -204,10 +213,7 @@
                 <div class="hero-image-wrapper">
                     <div class="tape-sticker"></div>
                     <div class="hero-photo" id="hero-avatar">
-                        <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="400" height="400" fill="#6bcb77"/>
-                            <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="160" fill="#000">SS</text>
-                        </svg>
+                        <img src="assets/sampath-headshot.jpg" alt="Sampath Satya Saran" class="hero-img" width="400" height="400" loading="eager" fetchpriority="high" />
                     </div>
                     <div class="deco-code">
                         <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -283,7 +289,7 @@
             <h2 class="section-title">ABOUT</h2>
             <div class="card">
                 <p class="text">
-                    I'm a first-year <span class="highlight highlight-yellow">BTech CSE student</span> at Andhra University, Visakhapatnam (2025–2029). I'm a multi-dimensional builder — <span class="highlight highlight-pink">photographer, designer, and developer</span> — with a strong focus on animated UI/UX and branding.
+                    I'm a second-year <span class="highlight highlight-yellow">BTech CSE student</span> at Andhra University, Visakhapatnam (2025–2029). I'm a multi-dimensional builder — <span class="highlight highlight-pink">photographer, designer, and developer</span> — with a strong focus on animated UI/UX and branding.
                 </p>
                 <p class="text">
                     I believe in <span class="highlight highlight-cyan">handcrafted, original design</span> — nothing that looks AI-generated or templated. I build <span class="highlight highlight-green">startup-scale solutions</span> relevant to Indian daily life, with a fast-shipping builder mindset.
@@ -294,6 +300,26 @@
                 <p class="text">
                     I've participated in <span class="highlight highlight-green">VibeCon</span> and various <span class="highlight highlight-yellow">AI innovation challenges</span>, always pushing to learn and ship faster.
                 </p>
+            </div>
+        </section>
+
+        <section class="section" id="achievements">
+            <h2 class="section-title">ACHIEVEMENTS</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon"><i class="fas fa-award"></i></div>
+                    <div class="achievement-body">
+                        <h3 class="achievement-title">Campus Ambassador — Unlox</h3>
+                        <p class="achievement-meta">
+                            <i class="fas fa-map-marker-alt"></i> Bengaluru
+                            <span class="achievement-dot">·</span>
+                            <span class="achievement-tag">Selected</span>
+                        </p>
+                        <p class="achievement-desc">
+                            Selected as a <span class="highlight highlight-cyan">Campus Ambassador for Unlox</span>, representing the brand across Bengaluru — driving student engagement, community outreach, and on-ground campaigns while building a network across colleges.
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1065,7 +1091,7 @@
             const progress = (scrolled / documentHeight) * 100;
             progressBarFill.style.width = progress + '%';
 
-            const sections = ['hero', 'about', 'experience', 'skills', 'contact'];
+            const sections = ['hero', 'about', 'achievements', 'experience', 'skills', 'contact'];
             let activeIndex = 0;
             sections.forEach((sectionId, index) => {
                 const section = document.getElementById(sectionId);

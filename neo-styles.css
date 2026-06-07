@@ -1078,6 +1078,45 @@ body[data-theme="dark"] .job-desc i {
   transform: rotate(-3deg);
 }
 
+.hero-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  margin: 0.25rem 0 1.25rem;
+  padding: 0.5rem 1rem;
+  background: var(--yellow);
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: var(--border-width) solid var(--border);
+  box-shadow: 4px 4px 0 var(--border);
+  border-radius: 6px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-badge:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--border);
+}
+
+.hero-badge i {
+  color: var(--primary);
+}
+
+.hero-badge strong {
+  font-weight: 800;
+}
+
 .tape-sticker {
   position: absolute;
   top: -15px;
@@ -2335,6 +2374,102 @@ body[data-theme="dark"] .map-popup-company span {
   padding: 2rem;
   box-shadow: 8px 8px 0 var(--border);
   transition: all 0.3s ease;
+}
+
+/* Achievements */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.achievement-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  background: var(--white);
+  border: var(--border-width) solid var(--border);
+  padding: 1.75rem;
+  box-shadow: 8px 8px 0 var(--border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.achievement-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 11px 11px 0 var(--border);
+}
+
+.achievement-icon {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  color: var(--text);
+  background: var(--yellow);
+  border: var(--border-width) solid var(--border);
+  box-shadow: 4px 4px 0 var(--border);
+  border-radius: 8px;
+}
+
+.achievement-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+}
+
+.achievement-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+  opacity: 0.85;
+}
+
+.achievement-dot {
+  opacity: 0.5;
+}
+
+.achievement-tag {
+  padding: 0.15rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--accent);
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  opacity: 1;
+}
+
+.achievement-desc {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .achievement-card {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.25rem;
+    box-shadow: 5px 5px 0 var(--border);
+  }
+
+  .achievement-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 1.4rem;
+  }
+
+  .achievement-title {
+    font-size: 1.15rem;
+  }
 }
 
 .text {

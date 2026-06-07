@@ -124,7 +124,7 @@ C/C++        █████████░░░░░░░░░░░  45%
 
 ## 📌 Currently
 
-- 🎓 1st year BTech CSE @ Andhra University
+- 🎓 2nd year BTech CSE @ Andhra University
 - 🔍 Looking for **part-time / work-from-home internships** (web dev, video editing)
 - 🛠️ Building and shipping projects with AI tools
 - 📱 Creating tech content on Instagram
