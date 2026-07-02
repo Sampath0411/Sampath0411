@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin · Sampath Satya Saran</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="neo-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .admin-page { min-height: 100vh; padding: 2rem 1rem; max-width: 880px; margin: 0 auto; }
+        .admin-card { background: #fff; border: 3px solid #000; border-radius: 12px; box-shadow: 6px 6px 0 #000; padding: 2rem; }
+        body[data-theme="dark"] .admin-card { background: #1a1a1a; color: #f4f4f4; }
+        .admin-card h1 { margin: 0 0 1rem; font-family: 'Space Grotesk', sans-serif; }
+        .admin-card p.label { font-family: 'Space Mono', monospace; font-size: 0.85rem; opacity: 0.8; margin: 0 0 0.5rem; }
+        .admin-card label { display: block; font-family: 'Space Mono', monospace; font-weight: 700; margin: 1rem 0 0.4rem; }
+        .admin-card input, .admin-card textarea {
+            width: 100%; box-sizing: border-box; padding: 0.6rem 0.8rem;
+            border: 2px solid #000; border-radius: 6px; font-family: 'Space Mono', monospace;
+            font-size: 0.95rem; background: #fff; color: #000;
+        }
+        body[data-theme="dark"] .admin-card input,
+        body[data-theme="dark"] .admin-card textarea { background: #2a2a2a; color: #f4f4f4; border-color: #555; }
+        .admin-card textarea { min-height: 90px; resize: vertical; }
+        .admin-actions { display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap; }
+        .admin-btn {
+            background: #ffd93d; color: #000; border: 2px solid #000; border-radius: 6px;
+            padding: 0.6rem 1.2rem; font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+            cursor: pointer; box-shadow: 3px 3px 0 #000; transition: transform 0.1s, box-shadow 0.1s;
+        }
+        .admin-btn:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 #000; }
+        .admin-btn.secondary { background: #fff; }
+        body[data-theme="dark"] .admin-btn.secondary { background: #2a2a2a; color: #f4f4f4; }
+        .admin-btn.danger { background: #ff6b6b; color: #fff; }
+        .admin-status { margin-top: 1rem; font-family: 'Space Mono', monospace; font-size: 0.85rem; }
+        .admin-status.ok { color: #2a9d2a; }
+        .admin-status.err { color: #d62828; }
+        .admin-hidden { display: none; }
+        .admin-topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+        .admin-topbar a { font-family: 'Space Mono', monospace; color: inherit; text-decoration: none; }
+        .admin-topbar a:hover { text-decoration: underline; }
+        .admin-section-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; margin: 1.5rem 0 0.5rem; border-bottom: 2px dashed #000; padding-bottom: 0.3rem; }
+        body[data-theme="dark"] .admin-section-title { border-color: #555; }
+    </style>
+</head>
+<body>
+    <div class="admin-page">
+        <div class="admin-topbar">
+            <a href="index.html"><i class="fas fa-arrow-left"></i> Back to site</a>
+            <button id="theme-toggle" class="admin-btn secondary" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+        </div>
+
+        <!-- LOGIN VIEW -->
+        <div id="login-view" class="admin-card">
+            <h1><i class="fas fa-lock"></i> Admin Login</h1>
+            <p class="label">Sign in with the admin account you created in Supabase.</p>
+            <form id="login-form" autocomplete="on">
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" name="email" required placeholder="admin@sampath0411.com" value="admin@sampath0411.com">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" name="password" required placeholder="••••••••">
+                <div class="admin-actions">
+                    <button type="submit" class="admin-btn"><i class="fas fa-sign-in-alt"></i> Sign in</button>
+                </div>
+                <p id="login-status" class="admin-status"></p>
+            </form>
+        </div>
+
+        <!-- EDITOR VIEW -->
+        <div id="editor-view" class="admin-card admin-hidden">
+            <div class="admin-topbar" style="margin-bottom:0.5rem;">
+                <h1 style="margin:0;"><i class="fas fa-pen-to-square"></i> Site Editor</h1>
+                <button id="logout-btn" class="admin-btn danger"><i class="fas fa-right-from-bracket"></i> Logout</button>
+            </div>
+            <p class="label" id="signed-in-as"></p>
+
+            <div class="admin-section-title">Hero</div>
+            <label for="ed-hero_name">Name / headline</label>
+            <input type="text" id="ed-hero_name" data-key="hero_name">
+            <label for="ed-hero_description">Hero description</label>
+            <textarea id="ed-hero_description" data-key="hero_description"></textarea>
+
+            <div class="admin-section-title">About</div>
+            <label for="ed-about_p1">About · paragraph 1</label>
+            <textarea id="ed-about_p1" data-key="about_p1"></textarea>
+            <label for="ed-about_p2">About · paragraph 2</label>
+            <textarea id="ed-about_p2" data-key="about_p2"></textarea>
+            <label for="ed-about_p3">About · paragraph 3</label>
+            <textarea id="ed-about_p3" data-key="about_p3"></textarea>
+            <label for="ed-about_p4">About · paragraph 4</label>
+            <textarea id="ed-about_p4" data-key="about_p4"></textarea>
+
+            <div class="admin-section-title">Contact</div>
+            <label for="ed-contact_intro">Contact intro line</label>
+            <input type="text" id="ed-contact_intro" data-key="contact_intro">
+            <label for="ed-contact_email">Email</label>
+            <input type="email" id="ed-contact_email" data-key="contact_email">
+            <label for="ed-contact_phone">Phone (display)</label>
+            <input type="text" id="ed-contact_phone" data-key="contact_phone">
+            <label for="ed-contact_whatsapp">WhatsApp number (digits only, no +)</label>
+            <input type="text" id="ed-contact_whatsapp" data-key="contact_whatsapp">
+
+            <div class="admin-actions">
+                <button id="save-btn" class="admin-btn"><i class="fas fa-floppy-disk"></i> Save all changes</button>
+                <button id="reload-btn" class="admin-btn secondary"><i class="fas fa-rotate"></i> Reload from Supabase</button>
+                <a href="index.html" class="admin-btn secondary" style="text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;"><i class="fas fa-eye"></i> View site</a>
+            </div>
+            <p id="save-status" class="admin-status"></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="supabase-client.js"></script>
+    <script>
+        // Theme (sync with main site)
+        const body = document.body;
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', currentTheme);
+        const themeBtn = document.getElementById('theme-toggle');
+        const themeIcon = themeBtn.querySelector('i');
+        function applyThemeIcon(t) {
+            themeIcon.className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+        applyThemeIcon(currentTheme);
+        themeBtn.addEventListener('click', () => {
+            const t = body.getAttribute('data-theme');
+            const next = t === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            applyThemeIcon(next);
+        });
+
+        const loginView = document.getElementById('login-view');
+        const editorView = document.getElementById('editor-view');
+        const loginForm = document.getElementById('login-form');
+        const loginStatus = document.getElementById('login-status');
+        const saveStatus = document.getElementById('save-status');
+        const signedInAs = document.getElementById('signed-in-as');
+
+        function setLoginStatus(msg, kind) {
+            loginStatus.textContent = msg || '';
+            loginStatus.className = 'admin-status' + (kind ? ' ' + kind : '');
+        }
+        function setSaveStatus(msg, kind) {
+            saveStatus.textContent = msg || '';
+            saveStatus.className = 'admin-status' + (kind ? ' ' + kind : '');
+        }
+
+        async function showEditor(user) {
+            loginView.classList.add('admin-hidden');
+            editorView.classList.remove('admin-hidden');
+            signedInAs.textContent = 'Signed in as: ' + (user.email || 'admin');
+            await loadIntoEditor();
+        }
+        function showLogin(msg, kind) {
+            loginView.classList.remove('admin-hidden');
+            editorView.classList.add('admin-hidden');
+            if (msg) setLoginStatus(msg, kind);
+            else setLoginStatus('');
+        }
+
+        async function loadIntoEditor() {
+            const content = await SiteContent.loadContent();
+            document.querySelectorAll('#editor-view [data-key]').forEach(el => {
+                el.value = content[el.getAttribute('data-key')] || '';
+            });
+            setSaveStatus('Loaded.', 'ok');
+        }
+
+        // Login
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            setLoginStatus('Signing in…');
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value;
+            try {
+                const client = SiteContent.getClient();
+                const { data, error } = await client.auth.signInWithPassword({ email, password });
+                if (error) {
+                    setLoginStatus('Login failed: ' + error.message, 'err');
+                    return;
+                }
+                if (!data || !data.user) {
+                    setLoginStatus('Login failed: no user returned', 'err');
+                    return;
+                }
+                await showEditor(data.user);
+            } catch (err) {
+                setLoginStatus('Login error: ' + err.message, 'err');
+            }
+        });
+
+        // Logout
+        document.getElementById('logout-btn').addEventListener('click', async () => {
+            try {
+                await SiteContent.getClient().auth.signOut();
+            } catch (_) {}
+            showLogin();
+        });
+
+        // Save
+        document.getElementById('save-btn').addEventListener('click', async () => {
+            setSaveStatus('Saving…');
+            const fields = document.querySelectorAll('#editor-view [data-key]');
+            let ok = 0, fail = 0;
+            for (const el of fields) {
+                const key = el.getAttribute('data-key');
+                try {
+                    await SiteContent.saveContentKey(key, el.value);
+                    ok++;
+                } catch (err) {
+                    console.error('save failed for', key, err);
+                    fail++;
+                }
+            }
+            if (fail === 0) setSaveStatus(`Saved ${ok} field${ok === 1 ? '' : 's'}. Changes are live on the site.`, 'ok');
+            else setSaveStatus(`Saved ${ok}, failed ${fail}. Check console.`, 'err');
+        });
+
+        // Reload
+        document.getElementById('reload-btn').addEventListener('click', loadIntoEditor);
+
+        // On load: check existing session
+        (async function init() {
+            try {
+                const client = SiteContent.getClient();
+                const { data } = await client.auth.getSession();
+                if (data && data.session && data.session.user) {
+                    await showEditor(data.session.user);
+                } else {
+                    showLogin();
+                }
+            } catch (err) {
+                showLogin('Supabase init error: ' + err.message, 'err');
+            }
+        })();
+    </script>
+</body>
+</html>
