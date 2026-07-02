@@ -3799,3 +3799,33 @@ body[data-theme="dark"] .talktous-field textarea {
   .talktous-wrap { padding: 1.25rem; margin-top: 2rem; }
   .talktous-title { font-size: 1.25rem; }
 }
+
+/* ===== Accessibility: visible keyboard focus =====
+   Applies to interactive elements incl. the now keyboard-operable
+   checkpoints and timeline cards (role="button" tabindex="0"). */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+.checkpoint:focus-visible,
+.timeline-item-flat:focus-visible,
+.social-btn:focus-visible,
+.contact-card:focus-visible,
+[role="button"]:focus-visible {
+  outline: 3px solid #6c63ff;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+body[data-theme="dark"] a:focus-visible,
+body[data-theme="dark"] button:focus-visible,
+body[data-theme="dark"] input:focus-visible,
+body[data-theme="dark"] textarea:focus-visible,
+body[data-theme="dark"] .checkpoint:focus-visible,
+body[data-theme="dark"] .timeline-item-flat:focus-visible,
+body[data-theme="dark"] .social-btn:focus-visible,
+body[data-theme="dark"] .contact-card:focus-visible,
+body[data-theme="dark"] [role="button"]:focus-visible {
+  outline-color: #ffd93d;
+}
+/* Don't show the ring on mouse click, only keyboard */
+:focus:not(:focus-visible) { outline: none; }

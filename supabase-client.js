@@ -53,7 +53,7 @@
     document.querySelectorAll('[data-editable]').forEach(el => {
       const key = el.getAttribute('data-editable');
       if (content[key] != null) {
-        // Preserve any inner highlights by setting textContent
+        // Set as text (editable nodes are plain text, so no inner markup to preserve)
         el.textContent = content[key];
       }
     });

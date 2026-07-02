@@ -210,24 +210,8 @@
             showLogin();
         });
 
-        // Save
-        document.getElementById('save-btn').addEventListener('click', async () => {
-            setSaveStatus('Saving…');
-            const fields = document.querySelectorAll('#editor-view [data-key]');
-            let ok = 0, fail = 0;
-            for (const el of fields) {
-                const key = el.getAttribute('data-key');
-                try {
-                    await SiteContent.saveContentKey(key, el.value);
-                    ok++;
-                } catch (err) {
-                    console.error('save failed for', key, err);
-                    fail++;
-                }
-            }
-            if (fail === 0) setSaveStatus(`Saved ${ok} field${ok === 1 ? '' : 's'}. Changes are live on the site.`, 'ok');
-            else setSaveStatus(`Saved ${ok}, failed ${fail}. Check console.`, 'err');
-        });
+        // Save is handled by the combined handler below (content fields + projects),
+        // registered once to avoid saving everything twice per click.
 
         // Reload
         document.getElementById('reload-btn').addEventListener('click', async () => {
@@ -308,10 +292,9 @@
             if (last) last.querySelector('.proj-title').focus();
         });
 
-        // Wrap save-btn handler to also save projects
-        const _origSaveHandler = document.getElementById('save-btn').onclick;
+        // Combined save: content fields + projects (the single save-btn handler)
         document.getElementById('save-btn').addEventListener('click', async () => {
-            // Save content fields (existing logic)
+            // Save content fields
             setSaveStatus('Saving…');
             const fields = document.querySelectorAll('#editor-view [data-key]');
             let ok = 0, fail = 0;

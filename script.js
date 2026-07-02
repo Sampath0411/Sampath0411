@@ -522,12 +522,12 @@ class TerminalResume {
   }
 
   printWelcomeMessage(outputElement = this.output) {
-    const asciiArt = `███╗   ███╗ █████╗ ██████╗ ██╗ ██████╗
-████╗ ████║██╔══██╗██╔══██╗██║██╔═══██╗
-██╔████╔██║███████║██████╔╝██║██║   ██║
-██║╚██╔╝██║██╔══██║██╔══██╗██║██║   ██║
-██║ ╚═╝ ██║██║  ██║██║  ██║██║╚██████╔╝
-╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝ ╚═════╝ `;
+    const asciiArt = `███████╗  █████╗  ███╗   ███╗ ██████╗   █████╗  ████████╗ ██╗  ██╗
+██╔════╝ ██╔══██╗ ████╗ ████║ ██╔══██╗ ██╔══██╗ ╚══██╔══╝ ██║  ██║
+███████╗ ███████║ ██╔████╔██║ ██████╔╝ ███████║    ██║    ███████║
+╚════██║ ██╔══██║ ██║╚██╔╝██║ ██╔═══╝  ██╔══██║    ██║    ██╔══██║
+███████║ ██║  ██║ ██║ ╚═╝ ██║ ██║      ██║  ██║    ██║    ██║  ██║
+╚══════╝ ╚═╝  ╚═╝ ╚═╝     ╚═╝ ╚═╝      ╚═╝  ╚═╝    ╚═╝    ╚═╝  ╚═╝`;
 
     const divider = "─────────────────────────────────────────────────";
 
@@ -539,7 +539,7 @@ class TerminalResume {
         "#888888"
       ) +
       this.wrapWithColor(
-        "         Software Engineer • Cloud Architect • Tech Lead\n",
+        "         Developer • Designer • Content Creator\n",
         "#666666"
       ) +
       this.wrapWithColor(divider + "\n\n", "#555555") +
@@ -651,11 +651,11 @@ ${this.wrapWithColor(
   "#ff8c00"
 )}
 ${this.wrapWithColor("│", "#ff8c00")} ${this.wrapWithColor(
-      "Senior software engineer with more than 10 years of",
+      "First-year BTech CSE student at Andhra University,",
       "#ffffff"
     )}
 ${this.wrapWithColor("│", "#ff8c00")} ${this.wrapWithColor(
-      "programming experience.",
+      "Visakhapatnam — a builder, designer & creator.",
       "#ffffff"
     )}
 ${this.wrapWithColor(
@@ -663,36 +663,36 @@ ${this.wrapWithColor(
   "#ff8c00"
 )}
 
-${this.wrapWithColor("⚡ Experience", "#ff8c00")}
+${this.wrapWithColor("⚡ Building", "#ff8c00")}
 ${this.wrapWithColor(
-  "   Building scalable and efficient software solutions using",
+  "   Full-stack products shipped solo with AI tools —",
   "#ffffff"
 )}
-${this.wrapWithColor("   React, JavaScript, and Google Cloud", "#ff8c00")}
+${this.wrapWithColor("   WriteConnect, EventFlow, ResumePlus & more", "#ff8c00")}
 
 ${this.wrapWithColor("⚡ Passion", "#ff8c00")}
 ${this.wrapWithColor(
-  "   Transforming innovative ideas into high-quality applications",
+  "   Animated UI/UX and original branding — handcrafted,",
   "#ffffff"
 )}
 ${this.wrapWithColor(
-  "   with elegant and efficient implementations",
+  "   nothing that looks AI-generated or templated",
   "#ffffff"
 )}
 
-${this.wrapWithColor("⚡ Strengths", "#ff8c00")}
+${this.wrapWithColor("⚡ Also", "#ff8c00")}
 ${this.wrapWithColor(
-  "   Strong team player with expertise in designing robust,",
+  "   Photographer & video editor (@samxeditz.56), creating",
   "#ffffff"
 )}
-${this.wrapWithColor("   high-performance systems", "#ffffff")}
+${this.wrapWithColor("   tech content and startup-scale ideas for India", "#ffffff")}
 
 ${this.wrapWithColor(
   "╭───────────────────────────────────────────────────────╮",
   "#ff8c00"
 )}
 ${this.wrapWithColor("│", "#ff8c00")} ${this.wrapWithColor(
-      "Ready to bring your innovative ideas to life!",
+      "Open to WFH internships — let's build something!",
       "#ffffff"
     )} ${this.wrapWithColor("│", "#ff8c00")}
 ${this.wrapWithColor(
@@ -778,140 +778,68 @@ ${this.wrapWithColor(
   }
 
   showExperience(outputElement = this.output) {
-    const experience = `<span style="color: #ffff00; font-weight: bold;">💼 Professional Experience</span>
+    const experience = `<span style="color: #ffff00; font-weight: bold;">💼 Experience & Roles</span>
 
-<span style="color: #00ffff;">UNICEPTA | Senior Software Engineer</span>
+<span style="color: #00ffff;">UNLOX | Campus Ambassador</span>
 ${this.wrapWithColor(
-  "Jul 2020 - Present | Cologne, Germany | 450+ employees",
+  "2025 - Present | Bengaluru (Remote) | EdTech",
   "#ffffff"
 )}
 ${this.wrapWithColor(
-  "Visionary, AI-powered Media & Data Intelligence Solutions",
+  "Representing Unlox on campus and driving student outreach",
   "#98fb98"
 )}
 
-• ${this.wrapWithColor("Part of Core team", "#ffa07a")} - ${this.wrapWithColor(
-      "Architect and part of every decision.",
+• ${this.wrapWithColor("Community outreach", "#ffa07a")} - ${this.wrapWithColor(
+      "Promote programs and onboard students at Andhra University.",
       "#ffffff"
     )}
-• ${this.wrapWithColor(
-      "Microservices engineer",
-      "#ffa07a"
-    )} - ${this.wrapWithColor(
-      "Designed and build services for distributed system",
-      "#ffffff"
-    )}
-• ${this.wrapWithColor("Pipeline engineer", "#ffa07a")} - ${this.wrapWithColor(
-      "Google cloud engineer for data pipeline",
-      "#ffffff"
-    )}
-• ${this.wrapWithColor("Fullstack engineer", "#ffa07a")} - ${this.wrapWithColor(
-      "Wrote and reviewed code for front/back/cloud.",
+• ${this.wrapWithColor("Events & workshops", "#ffa07a")} - ${this.wrapWithColor(
+      "Help organise and run tech/learning sessions on campus.",
       "#ffffff"
     )}
 
-${this.wrapWithColor("Technologies used:", "#00ffff")} ${this.wrapWithColor(
-      "Typescript, React, NodeJs, Poetry, PyTest, ReactJS, Jest, Cypress, ES6, ElasticSearch, Google Cloud, JIRA, Firebase, Kubernetes, Data Flow",
-      "#87cefa"
-    )}
-
-<span style="color: #00ffff;">RITECH SOLUTIONS | Senior Software Engineer</span>
+<span style="color: #00ffff;">FREELANCE | Video Editor & Content Creator</span>
 ${this.wrapWithColor(
-  "Jul 2018 – Jul 2020 | Tirana, Albania | 100-150 employees",
+  "2023 - Present | Remote | @samxeditz.56",
   "#ffffff"
 )}
 
-• ${this.wrapWithColor("Part of Core team", "#ffa07a")} - ${this.wrapWithColor(
-      "Team that leads company tech decisions",
+• ${this.wrapWithColor("Reels & short-form", "#ffa07a")} - ${this.wrapWithColor(
+      "Edit Instagram reels and YouTube shorts with CapCut.",
       "#ffffff"
     )}
-• ${this.wrapWithColor("Tech interviewer", "#ffa07a")} - ${this.wrapWithColor(
-      "Interview potential candidates.",
-      "#ffffff"
-    )}
-• ${this.wrapWithColor("Microsoft project", "#ffa07a")} - ${this.wrapWithColor(
-      "IOT marketing project in every Microsoft store.",
-      "#ffffff"
-    )}
-• ${this.wrapWithColor("Fullstack engineer", "#ffa07a")} - ${this.wrapWithColor(
-      "Wrote and reviewed code for big projects.",
-      "#ffffff"
-    )}
-• ${this.wrapWithColor(
-      "AppriseMobile Tech Lead",
-      "#ffa07a"
-    )} - ${this.wrapWithColor(
-      "CRM for Toyota and corporates in USA",
+• ${this.wrapWithColor("Branding & design", "#ffa07a")} - ${this.wrapWithColor(
+      "Thumbnails, motion graphics, and original brand visuals.",
       "#ffffff"
     )}
 
-${this.wrapWithColor("Technologies used:", "#00ffff")} ${this.wrapWithColor(
-      "JavaScript, Python, pandas, NodeJs, ReactJS, Chai, Sinon, Mocha, ES6, ElasticSearch, Redis, Nginx, Gulp, JIRA, Docker, Azure, AWS, MongoDB",
+${this.wrapWithColor("Tools used:", "#00ffff")} ${this.wrapWithColor(
+      "CapCut, Photoshop, Figma, Canva, After Effects (learning)",
       "#87cefa"
     )}
 
-<span style="color: #00ffff;">GUTENBERG TECHNOLOGY | Software Engineering</span>
+<span style="color: #00ffff;">INDEPENDENT | Developer & Builder</span>
 ${this.wrapWithColor(
-  "Feb 2017 – Aug 2018 | Paris, France | 50-100 employees",
+  "2024 - Present | Visakhapatnam, India | Solo",
   "#ffffff"
 )}
 
-• ${this.wrapWithColor(
-      "Fullstack developer",
-      "#ffa07a"
-    )} - ${this.wrapWithColor(
-      "Frontend and backend (real-time publisher platform) used by National Geographics, IUBH, Fujitsu",
+• ${this.wrapWithColor("Full-stack projects", "#ffa07a")} - ${this.wrapWithColor(
+      "Ship products end-to-end: WriteConnect, EventFlow, ResumePlus.",
       "#ffffff"
     )}
-• ${this.wrapWithColor("MEFIO developer", "#ffa07a")} - ${this.wrapWithColor(
-      "Highly available publisher platform",
+• ${this.wrapWithColor("Animated UI/UX", "#ffa07a")} - ${this.wrapWithColor(
+      "Handcrafted, original interfaces — nothing templated.",
       "#ffffff"
     )}
-• ${this.wrapWithColor(
-      "Webreader developer",
-      "#ffa07a"
-    )} - ${this.wrapWithColor(
-      "reader platform, e-Learning platform",
-      "#ffffff"
-    )}
-• ${this.wrapWithColor("SaaS developer", "#ffa07a")} - ${this.wrapWithColor(
-      "Integrated strategy to migrate from manual sales to SaaS",
+• ${this.wrapWithColor("AI-assisted shipping", "#ffa07a")} - ${this.wrapWithColor(
+      "Build fast with AI tooling; participated in VibeCon.",
       "#ffffff"
     )}
 
 ${this.wrapWithColor("Technologies used:", "#00ffff")} ${this.wrapWithColor(
-      "Python, ES6, ElasticSearch, Redis, Nginx, npm, Gulp, JIRA, Docker, AWS S3, RethinkDB, ReactJS, NodeJS, AngularJS, JavaScript",
-      "#87cefa"
-    )}
-
-<span style="color: #00ffff;">GROUP OF COMPANIES | Software Engineer</span>
-${this.wrapWithColor(
-  "Mar 2015 – Feb 2017 | Tirana, Albania | 5-30 employees",
-  "#ffffff"
-)}
-
-• ${this.wrapWithColor("Software developer", "#ffa07a")} - ${this.wrapWithColor(
-      "Developed web and native projects",
-      "#ffffff"
-    )}
-• ${this.wrapWithColor("Bar management app", "#ffa07a")} - ${this.wrapWithColor(
-      "Developed app for bar/restaurant management.",
-      "#ffffff"
-    )}
-• ${this.wrapWithColor(
-      "Bank system optimisation",
-      "#ffa07a"
-    )} - ${this.wrapWithColor(
-      "Optimised aggregation from 11h to 1h",
-      "#ffffff"
-    )}
-• ${this.wrapWithColor("UKD developer", "#ffa07a")} - ${this.wrapWithColor(
-      "Water supply billing process for Albania, Government project",
-      "#ffffff"
-    )}
-
-${this.wrapWithColor("Technologies used:", "#00ffff")} ${this.wrapWithColor(
-      "Typescript, Python, Gulp, Docker, MongoDB, ReactJS, NodeJs, AngularJS, JavaScript, Java",
+      "JavaScript, HTML/CSS, React, Next.js, Node.js, Python, Supabase, Firebase, Git",
       "#87cefa"
     )}`;
 
@@ -929,7 +857,7 @@ ${this.wrapWithColor(
   "#ff8c00"
 )}
 ${this.wrapWithColor("│", "#ff8c00")}${this.wrapWithColor(
-      " Bachelor of Computer Science ",
+      " B.Tech · Computer Science & Engineering ",
       "#ffffff"
     )}${this.wrapWithColor("│", "#ff8c00")}
 ${this.wrapWithColor(
@@ -938,15 +866,15 @@ ${this.wrapWithColor(
 )}
 
 ${this.wrapWithColor("🏛️ Institution:", "#ff8c00")} ${this.wrapWithColor(
-      "University of Tirana",
+      "Andhra University",
       "#ffffff"
     )}
 ${this.wrapWithColor("📅 Duration:", "#ff8c00")}    ${this.wrapWithColor(
-      "2013 - 2016",
+      "2025 - 2029",
       "#ffffff"
     )}
 ${this.wrapWithColor("📍 Location:", "#ff8c00")}    ${this.wrapWithColor(
-      "Tirana, Albania",
+      "Visakhapatnam, Andhra Pradesh, India",
       "#ffffff"
     )}
 
@@ -970,32 +898,33 @@ ${this.wrapWithColor(
   }
 
   showSkills(outputElement = this.output) {
-    const skills = `<span style="color: #ffff00; font-weight: bold;">🛠️ PROGRAMMING</span>
+    const skills = `<span style="color: #ffff00; font-weight: bold;">🛠️ SKILLS</span>
 
-• ${this.wrapWithColor("Typescript", "#ffffff")}
-• ${this.wrapWithColor("Python", "#ffffff")}
-• ${this.wrapWithColor("Javascript", "#ffffff")}
-• ${this.wrapWithColor("Node", "#ffffff")}
+<span style="color: #00ffff;">Development</span>
+• ${this.wrapWithColor("HTML / CSS", "#ffffff")}
+• ${this.wrapWithColor("JavaScript", "#ffffff")}
 • ${this.wrapWithColor("React", "#ffffff")}
-• ${this.wrapWithColor("Angular", "#ffffff")}
-• ${this.wrapWithColor("Google Cloud", "#ffffff")}
-• ${this.wrapWithColor("AWS", "#ffffff")}
-• ${this.wrapWithColor("Azure", "#ffffff")}
-• ${this.wrapWithColor("Docker", "#ffffff")}
-• ${this.wrapWithColor("Terraform", "#ffffff")}
-• ${this.wrapWithColor("Kubernetes", "#ffffff")}
-• ${this.wrapWithColor("Java", "#ffffff")}
-• ${this.wrapWithColor("Kotlin", "#ffffff")}
-• ${this.wrapWithColor("MongoDB", "#ffffff")}
-• ${this.wrapWithColor("RethinkDB", "#ffffff")}
-• ${this.wrapWithColor("Jest", "#ffffff")}
-• ${this.wrapWithColor("ElasticSearch", "#ffffff")}
-• ${this.wrapWithColor("GraphQL", "#ffffff")}
-• ${this.wrapWithColor("Express", "#ffffff")}
-• ${this.wrapWithColor("Redis", "#ffffff")}
-• ${this.wrapWithColor("SQL", "#ffffff")}
-• ${this.wrapWithColor("HTML", "#ffffff")}
-• ${this.wrapWithColor("CSS", "#ffffff")}`;
+• ${this.wrapWithColor("Next.js", "#ffffff")}
+• ${this.wrapWithColor("Node.js", "#ffffff")}
+• ${this.wrapWithColor("Python", "#ffffff")}
+• ${this.wrapWithColor("C / C++", "#ffffff")}
+• ${this.wrapWithColor("Supabase", "#ffffff")}
+• ${this.wrapWithColor("Firebase", "#ffffff")}
+• ${this.wrapWithColor("Git & GitHub", "#ffffff")}
+
+<span style="color: #00ffff;">Design & Content</span>
+• ${this.wrapWithColor("UI/UX Design", "#ffffff")}
+• ${this.wrapWithColor("Figma", "#ffffff")}
+• ${this.wrapWithColor("Photoshop", "#ffffff")}
+• ${this.wrapWithColor("Canva", "#ffffff")}
+• ${this.wrapWithColor("Video Editing (CapCut)", "#ffffff")}
+• ${this.wrapWithColor("Photography", "#ffffff")}
+• ${this.wrapWithColor("Branding", "#ffffff")}
+
+<span style="color: #00ffff;">Mindset</span>
+• ${this.wrapWithColor("Fast shipping", "#ffffff")}
+• ${this.wrapWithColor("AI-assisted building", "#ffffff")}
+• ${this.wrapWithColor("Handcrafted, original design", "#ffffff")}`;
 
     const skillsDiv = document.createElement("div");
     skillsDiv.innerHTML = skills;
@@ -1017,7 +946,7 @@ ${this.wrapWithColor("✉", "#ff8c00")}  ${this.wrapWithColor(
       "Email:",
       "#ff8c00"
     )} ${this.wrapWithColor(
-      '<a href="mailto:marjoballabani@gmail.com" style="color: #ffffff; text-decoration: none;">marjoballabani@gmail.com</a>',
+      '<a href="mailto:sampathlox@gmail.com" style="color: #ffffff; text-decoration: none;">sampathlox@gmail.com</a>',
       "#ffffff"
     )}
 
@@ -1025,7 +954,7 @@ ${this.wrapWithColor("🌐", "#ff8c00")}  ${this.wrapWithColor(
       "Website:",
       "#ff8c00"
     )} ${this.wrapWithColor(
-      '<a href="https://marjoballabani.me" target="_blank" style="color: #ffffff; text-decoration: none;">marjoballabani.me</a>',
+      '<a href="https://sampath0411.github.io/Sampath0411" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: none;">sampath0411.github.io</a>',
       "#ffffff"
     )}
 
@@ -1033,7 +962,7 @@ ${this.wrapWithColor("⚡", "#ff8c00")}  ${this.wrapWithColor(
       "Github:",
       "#ff8c00"
     )} ${this.wrapWithColor(
-      '<a href="https://github.com/marjoballabani" target="_blank" style="color: #ffffff; text-decoration: none;">github.com/marjoballabani</a>',
+      '<a href="https://github.com/Sampath0411" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: none;">github.com/Sampath0411</a>',
       "#ffffff"
     )}
 
@@ -1041,7 +970,7 @@ ${this.wrapWithColor("💼", "#ff8c00")}  ${this.wrapWithColor(
       "LinkedIn:",
       "#ff8c00"
     )} ${this.wrapWithColor(
-      '<a href="https://linkedin.com/in/marjo-ballabani" target="_blank" style="color: #ffffff; text-decoration: none;">linkedin.com/in/marjo-ballabani</a>',
+      '<a href="https://linkedin.com/in/sampath1904" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: none;">linkedin.com/in/sampath1904</a>',
       "#ffffff"
     )}
 
@@ -1094,34 +1023,54 @@ ${this.wrapWithColor("╰──────────────────�
   loadProjects() {
     this.projects = [
       {
-        title: "Interactive Terminal Resume",
-        description: "A unique terminal-based resume with interactive features",
-        image: "path/to/project-image.jpg",
-        technologies: ["JavaScript", "HTML", "CSS"],
-        demo: "https://demo.example.com",
-        repo: "https://github.com/example/repo",
+        title: "WriteConnect — Student & Writer Platform",
+        description:
+          "Full-stack Next.js platform connecting students with academic writers. Dual roles, real-time chat, request management, reviews, and a Supabase backend.",
+        image: "assets/sampath-headshot.jpg",
+        technologies: ["Next.js", "Supabase", "JavaScript", "CSS"],
+        demo: "https://sampath0411.github.io/Sampath0411",
+        repo: "https://github.com/Sampath0411",
       },
-      // Add more projects
+      {
+        title: "EventFlow — Event Management Platform",
+        description:
+          "Complete event management system with QR code generation, CSV export, and dual user roles. Built for Indian use cases.",
+        image: "assets/sampath-headshot.jpg",
+        technologies: ["HTML", "JavaScript", "localStorage"],
+        demo: "https://sampath0411.github.io/Sampath0411",
+        repo: "https://github.com/Sampath0411",
+      },
+      {
+        title: "ResumePlus / ResumePulse — ATS Resume Builder",
+        description:
+          "ATS-friendly resume builder helping students create professional resumes with clean design and applicant-tracking compatibility.",
+        image: "assets/sampath-headshot.jpg",
+        technologies: ["HTML", "CSS", "JavaScript"],
+        demo: "https://sampath0411.github.io/Sampath0411",
+        repo: "https://github.com/Sampath0411",
+      },
     ];
   }
 
   loadSkills() {
     this.skills = {
-      programming: {
-        JavaScript: 95,
-        Python: 90,
-        "React.js": 85,
-        "Node.js": 88,
+      development: {
+        "HTML/CSS": 80,
+        JavaScript: 70,
+        React: 65,
+        "Node.js": 60,
+        Python: 60,
       },
-      cloud: {
-        "Google Cloud": 92,
-        AWS: 85,
-        Azure: 80,
+      design: {
+        "UI/UX Design": 75,
+        Figma: 70,
+        "Video Editing": 70,
+        Branding: 72,
       },
-      databases: {
-        MongoDB: 90,
-        PostgreSQL: 85,
-        Redis: 82,
+      backend: {
+        Supabase: 65,
+        Firebase: 60,
+        "Git & GitHub": 75,
       },
     };
   }
@@ -1131,12 +1080,12 @@ ${this.wrapWithColor("╰──────────────────�
       resume: {
         type: "directory",
         contents: {
-          "about.txt": { type: "file", content: "About me..." },
-          "skills.md": { type: "file", content: "# Skills..." },
+          "about.txt": { type: "file", content: "BTech CSE student & builder from Visakhapatnam." },
+          "skills.md": { type: "file", content: "# Skills: HTML/CSS, JavaScript, React, Python, UI/UX" },
           projects: {
             type: "directory",
             contents: {
-              "project1.md": { type: "file", content: "Project 1 details..." },
+              "writeconnect.md": { type: "file", content: "Student & writer platform on Next.js + Supabase." },
             },
           },
         },
@@ -1184,10 +1133,10 @@ ${this.wrapWithColor("╰──────────────────�
               .join("")}
           </div>
           <div class="project-links">
-            <a href="${project.demo}" class="project-link" target="_blank">
+            <a href="${project.demo}" class="project-link" target="_blank" rel="noopener noreferrer">
               <i class="fas fa-external-link-alt"></i> Demo
             </a>
-            <a href="${project.repo}" class="project-link" target="_blank">
+            <a href="${project.repo}" class="project-link" target="_blank" rel="noopener noreferrer">
               <i class="fab fa-github"></i> Repository
             </a>
           </div>
@@ -1678,7 +1627,10 @@ ${this.wrapWithColor("╰──────────────────�
 
     try {
       // Using OpenWeatherMap API
-      const apiKey = "4331a27995f4c5b5e8d1eab1ed3d88b4"; // Free API key with limited usage
+      // NOTE: This OpenWeatherMap key is public (client-side). It came with the
+      // original template — rotate it in your own OpenWeatherMap account and, if
+      // possible, restrict it. Consider replacing with your own free key.
+      const apiKey = "4331a27995f4c5b5e8d1eab1ed3d88b4";
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
         location
       )}&appid=${apiKey}&units=metric`;
@@ -1730,6 +1682,71 @@ ${this.wrapWithColor("╰──────────────────�
   }
 
   // Calculator command
+  // Safe arithmetic evaluator (shunting-yard → RPN). Replaces eval().
+  // Supports numbers (incl. decimals), + - * / %, unary minus, and parentheses.
+  safeEvalMath(expr) {
+    const tokens = String(expr).match(/(\d+\.?\d*|\.\d+|[+\-*/%()])/g);
+    if (!tokens) throw new Error("Empty expression");
+
+    const prec = { "+": 1, "-": 1, "*": 2, "/": 2, "%": 2, "u-": 3 };
+    const output = [];
+    const ops = [];
+    let prev = null; // track previous token to detect unary minus
+
+    for (const tok of tokens) {
+      if (/^(\d|\.)/.test(tok)) {
+        output.push(parseFloat(tok));
+      } else if (tok === "(") {
+        ops.push(tok);
+      } else if (tok === ")") {
+        while (ops.length && ops[ops.length - 1] !== "(") output.push(ops.pop());
+        if (ops.pop() !== "(") throw new Error("Mismatched parentheses");
+      } else {
+        // operator — detect unary minus
+        let op = tok;
+        if (op === "-" && (prev === null || prev === "(" || prev in prec)) op = "u-";
+        while (
+          ops.length &&
+          ops[ops.length - 1] !== "(" &&
+          prec[ops[ops.length - 1]] >= prec[op] &&
+          op !== "u-" // unary is right-associative
+        ) {
+          output.push(ops.pop());
+        }
+        ops.push(op);
+      }
+      prev = tok;
+    }
+    while (ops.length) {
+      const op = ops.pop();
+      if (op === "(") throw new Error("Mismatched parentheses");
+      output.push(op);
+    }
+
+    const st = [];
+    for (const t of output) {
+      if (typeof t === "number") {
+        st.push(t);
+      } else if (t === "u-") {
+        if (!st.length) throw new Error("Invalid expression");
+        st.push(-st.pop());
+      } else {
+        if (st.length < 2) throw new Error("Invalid expression");
+        const b = st.pop();
+        const a = st.pop();
+        st.push(
+          t === "+" ? a + b :
+          t === "-" ? a - b :
+          t === "*" ? a * b :
+          t === "/" ? a / b :
+          a % b
+        );
+      }
+    }
+    if (st.length !== 1) throw new Error("Invalid expression");
+    return st[0];
+  }
+
   calculate(expression, outputElement) {
     if (!expression) {
       this.printToOutput(
@@ -1741,12 +1758,9 @@ ${this.wrapWithColor("╰──────────────────�
     }
 
     try {
-      // Sanitize the expression to prevent code injection
-      // Only allow numbers, basic operators, parentheses, and some math functions
-      const sanitizedExpression = expression.replace(/[^0-9+\-*/().%\s]/g, "");
-
-      // Evaluate the expression
-      const result = eval(sanitizedExpression);
+      // Evaluate with a safe arithmetic parser (no eval — avoids code injection).
+      // Only numbers and + - * / % ( ) are supported.
+      const result = this.safeEvalMath(expression);
 
       if (isNaN(result) || !isFinite(result)) {
         throw new Error("Invalid result");
@@ -1838,7 +1852,7 @@ ${this.wrapWithColor("╰──────────────────�
 
     // Add terminal title
     const terminalTitle = document.createElement("div");
-    terminalTitle.textContent = "marjo@ballabani: ~/interactive-resume";
+    terminalTitle.textContent = "sampath@vizag: ~/interactive-resume";
     terminalTitle.style.color = "#f8f8f2";
     terminalTitle.style.fontSize = "12px";
     terminalTitle.style.fontFamily = "'Fira Code', monospace";
@@ -1895,7 +1909,7 @@ ${this.wrapWithColor("╰──────────────────�
 
     // Add role
     const role = document.createElement("div");
-    role.textContent = "Software Engineer • Cloud Architect • Tech Lead";
+    role.textContent = "Developer • Designer • Content Creator";
     role.style.color = "#666666";
     role.style.fontSize = "10px";
     role.style.fontFamily = "'Fira Code', monospace";
@@ -2027,7 +2041,7 @@ ${this.wrapWithColor("╰──────────────────�
     urlContainer.style.textAlign = "center";
 
     const url = document.createElement("div");
-    url.textContent = "marjoballabani.me";
+    url.textContent = "sampath0411.github.io";
     url.style.color = "#87cefa";
     url.style.fontSize = "12px";
     url.style.fontFamily = "'Fira Code', monospace";
