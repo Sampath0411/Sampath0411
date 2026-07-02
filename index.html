@@ -147,6 +147,10 @@
                 <div class="checkpoint-dot"></div>
                 <span class="checkpoint-label">Achievements</span>
             </div>
+            <div class="checkpoint" data-section="projects">
+                <div class="checkpoint-dot"></div>
+                <span class="checkpoint-label">Projects</span>
+            </div>
             <div class="checkpoint" data-section="skills">
                 <div class="checkpoint-dot"></div>
                 <span class="checkpoint-label">Skills</span>
@@ -164,6 +168,7 @@
                 <a href="#hero" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#achievements" class="nav-link">Achievements</a>
+                <a href="#projects" class="nav-link">Projects</a>
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#contact" class="nav-cta">Let's Talk!</a>
                 <button id="theme-toggle" class="theme-toggle-nav" aria-label="Toggle theme">
@@ -306,6 +311,25 @@
                         </p>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section class="section" id="projects">
+            <h2 class="section-title-center">My Projects</h2>
+            <div class="journey-container" style="grid-template-columns: 1fr;">
+                <div class="journey-timeline" id="projects-timeline">
+                    <h3 class="timeline-header">Project Timeline</h3>
+                    <div class="timeline-list" id="projects-list">
+                        <p style="text-align:center;opacity:0.6;font-family:'Space Mono',monospace;">Loading projects…</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="map-section">
+            <h2 class="section-title">WHERE I'M FROM</h2>
+            <div class="journey-map-container" style="max-width: 1000px; margin: 0 auto;">
+                <div id="journey-map" style="height: 500px; border: 3px solid #000; border-radius: 12px; overflow: hidden; box-shadow: 6px 6px 0 #000;"></div>
             </div>
         </section>
 
@@ -512,6 +536,7 @@
                     <div class="footer-nav-compact">
                         <a href="#hero">Home</a>
                         <a href="#about">About</a>
+                        <a href="#projects">Projects</a>
                         <a href="#skills">Skills</a>
                         <a href="#contact">Contact</a>
                     </div>
@@ -998,7 +1023,7 @@
             const progress = (scrolled / documentHeight) * 100;
             progressBarFill.style.width = progress + '%';
 
-            const sections = ['hero', 'about', 'achievements', 'skills', 'contact'];
+            const sections = ['hero', 'about', 'achievements', 'projects', 'skills', 'contact'];
             let activeIndex = 0;
             sections.forEach((sectionId, index) => {
                 const section = document.getElementById(sectionId);
@@ -1048,6 +1073,58 @@
                 console.warn('Editable content load failed; using defaults.', e);
             }
         })();
+
+        // Load projects from Supabase and render into the projects timeline
+        (async function initProjects() {
+            try {
+                const projects = await SiteContent.loadProjects();
+                SiteContent.renderProjects(projects, document.getElementById('projects-list'));
+            } catch (e) {
+                console.warn('Projects load failed; using defaults.', e);
+            }
+        })();
+
+        // Re-initialize Leaflet map for the dedicated map section
+        document.addEventListener('DOMContentLoaded', function initMapSection() {
+            const mapEl = document.getElementById('journey-map');
+            if (!mapEl || !window.L) return;
+            // If a previous map instance is bound to the element, Leaflet handles re-init
+            const initialView = { center: [17.6868, 83.2185], zoom: 5 };
+            const map = L.map('journey-map', {
+                center: initialView.center,
+                zoom: initialView.zoom,
+                scrollWheelZoom: false,
+                zoomControl: true
+            });
+            L.tileLayer('https://watercolormaps.collection.cooperhewitt.org/tile/watercolor/{z}/{x}/{y}.jpg', {
+                attribution: '© Stamen Design, © OpenStreetMap contributors',
+                maxZoom: 16
+            }).addTo(map);
+            L.Control.Home = L.Control.extend({
+                onAdd: function () {
+                    const container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-home');
+                    const link = L.DomUtil.create('a', '', container);
+                    link.href = '#';
+                    link.title = 'Reset map view';
+                    link.innerHTML = '<i class="fas fa-home"></i>';
+                    L.DomEvent.on(link, 'click', function (e) {
+                        e.preventDefault();
+                        map.setView(initialView.center, initialView.zoom);
+                    });
+                    return container;
+                }
+            });
+            new L.Control.Home({ position: 'topright' }).addTo(map);
+            const markerIcon = L.divIcon({
+                className: 'neo-marker neo-marker-current',
+                html: '<div class="neo-marker-label neo-marker-label-current">India</div><div class="neo-marker-pin neo-marker-pin-current"></div>',
+                iconSize: [35, 35],
+                iconAnchor: [17.5, 50],
+                popupAnchor: [0, -50]
+            });
+            const marker = L.marker(initialView.center, { icon: markerIcon }).addTo(map);
+            marker.bindPopup('<div class="map-popup"><div class="map-popup-country">India</div><div class="map-popup-company"><strong>Visakhapatnam</strong><span>Home base</span><small>Andhra Pradesh</small></div></div>');
+        });
 
         // Talk to Us form handler — submits to Web3Forms, shows status inline
         (function setupTalkToUs() {
