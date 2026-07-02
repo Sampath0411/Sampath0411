@@ -187,9 +187,7 @@
                     <i class="fas fa-award"></i>
                     <span>Campus Ambassador @ <strong>Unlox</strong> · Bengaluru</span>
                 </a>
-                <p class="hero-description">
-                    Second-year BTech CSE student at <span class="highlight highlight-yellow">Andhra University, Visakhapatnam</span> (2025–2029). I'm a multi-dimensional builder — photographer, designer, and developer — with a strong focus on <span class="highlight highlight-cyan">animated UI/UX and branding</span>. I build startup-scale solutions relevant to Indian daily life.
-                </p>
+                <p class="hero-description" data-editable="hero_description">Second-year BTech CSE student at Andhra University, Visakhapatnam (2025–2029). I'm a multi-dimensional builder — photographer, designer, and developer — with a strong focus on animated UI/UX and branding. I build startup-scale solutions relevant to Indian daily life.</p>
                 <div class="hero-social">
                     <a href="https://github.com/Sampath0411" target="_blank" class="social-btn" title="GitHub">
                         <i class="fab fa-github"></i>
@@ -314,22 +312,43 @@
             </div>
         </section>
 
-        <section class="section" id="projects">
+        <section class="section journey-section" id="projects">
             <h2 class="section-title-center">My Projects</h2>
-            <div class="journey-container" style="grid-template-columns: 1fr;">
+            <div class="journey-container">
                 <div class="journey-timeline" id="projects-timeline">
                     <h3 class="timeline-header">Project Timeline</h3>
                     <div class="timeline-list" id="projects-list">
                         <p style="text-align:center;opacity:0.6;font-family:'Space Mono',monospace;">Loading projects…</p>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="section" id="map-section">
-            <h2 class="section-title">WHERE I'M FROM</h2>
-            <div class="journey-map-container" style="max-width: 1000px; margin: 0 auto;">
-                <div id="journey-map" style="height: 500px; border: 3px solid #000; border-radius: 12px; overflow: hidden; box-shadow: 6px 6px 0 #000;"></div>
+                <div class="journey-timeline-back" id="projects-timeline-back" aria-hidden="true">
+                    <svg class="treasure-map-svg" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="600" fill="#f4e7d7"/>
+                        <!-- India outline simplified -->
+                        <path d="M160,180 Q180,160 200,170 Q230,150 250,180 Q270,200 260,240 Q280,260 270,290 Q260,320 240,340 Q220,360 200,380 Q180,360 170,330 Q150,300 140,270 Q130,240 140,210 Q150,190 160,180 Z" fill="#ffd93d" stroke="#8B4513" stroke-width="2" opacity="0.6"/>
+                        <!-- Visakhapatnam marker -->
+                        <circle cx="240" cy="250" r="8" fill="#ff6b6b" stroke="#000" stroke-width="2"/>
+                        <text x="240" y="235" text-anchor="middle" font-size="11" font-weight="bold" fill="#8B4513">Vizag</text>
+                        <!-- Compass -->
+                        <g transform="translate(320, 80)">
+                            <circle cx="0" cy="0" r="30" fill="none" stroke="#8B4513" stroke-width="2"/>
+                            <polygon points="0,-28 4,-8 -4,-8" fill="#D2691E"/>
+                            <polygon points="0,28 4,8 -4,8" fill="#8B4513"/>
+                            <text x="0" y="-38" text-anchor="middle" font-size="14" font-weight="bold" fill="#8B4513">N</text>
+                        </g>
+                        <!-- Waves -->
+                        <g opacity="0.3">
+                            <path d="M40,450 Q50,445 60,450 T80,450" stroke="#4682B4" stroke-width="2" fill="none"/>
+                            <path d="M40,460 Q50,455 60,460 T80,460" stroke="#4682B4" stroke-width="2" fill="none"/>
+                            <path d="M280,520 Q290,515 300,520 T320,520" stroke="#4682B4" stroke-width="2" fill="none"/>
+                        </g>
+                        <!-- Border -->
+                        <rect x="10" y="10" width="380" height="580" fill="none" stroke="#8B4513" stroke-width="3" stroke-dasharray="10,5"/>
+                    </svg>
+                </div>
+                <div class="journey-map-container">
+                    <div id="journey-map"></div>
+                </div>
             </div>
         </section>
 
@@ -925,92 +944,25 @@
 
         setTimeout(matrixTypingEffect, 500);
 
-        // Journey Map with Leaflet - India focused
-        const initialView = { center: [17.6868, 83.2185], zoom: 5 };
-        const map = L.map('journey-map', {
-            center: initialView.center,
-            zoom: initialView.zoom,
-            scrollWheelZoom: false,
-            zoomControl: true
-        });
-
-        L.tileLayer('https://watercolormaps.collection.cooperhewitt.org/tile/watercolor/{z}/{x}/{y}.jpg', {
-            attribution: '© Stamen Design, © OpenStreetMap contributors',
-            maxZoom: 16
-        }).addTo(map);
-
-        // Custom home button
-        L.Control.Home = L.Control.extend({
-            onAdd: function(map) {
-                const container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-home');
-                const link = L.DomUtil.create('a', '', container);
-                link.href = '#';
-                link.title = 'Reset map view';
-                link.innerHTML = '<i class="fas fa-home"></i>';
-                L.DomEvent.on(link, 'click', function(e) {
-                    e.preventDefault();
-                    map.setView(initialView.center, initialView.zoom);
+        // Timeline click handlers (works with projects loaded dynamically from Supabase)
+        function bindTimelineClickHandlers() {
+            document.querySelectorAll('.timeline-item-flat').forEach(item => {
+                // Avoid double-binding
+                if (item.__boundClick) return;
+                item.__boundClick = true;
+                item.addEventListener('click', () => {
+                    const country = item.getAttribute('data-country');
+                    const markers = window.journeyMarkers || {};
+                    const map = window.journeyMap;
+                    const marker = markers[country];
+                    if (marker && map) {
+                        map.setView(marker.getLatLng(), 8, { animate: true, duration: 1 });
+                        setTimeout(() => marker.openPopup(), 500);
+                    }
                 });
-                return container;
-            }
-        });
-        new L.Control.Home({ position: 'topright' }).addTo(map);
-
-        // Visakhapatnam marker
-        const locations = [
-            {
-                coords: [17.6868, 83.2185],
-                country: 'India',
-                companies: [
-                    { city: 'Visakhapatnam', company: 'All Projects', period: '2024 - Present', role: 'Developer & Designer' }
-                ]
-            }
-        ];
-
-        const markers = {};
-        locations.forEach(location => {
-            const markerIcon = L.divIcon({
-                className: 'neo-marker neo-marker-current',
-                html: `
-                    <div class="neo-marker-label neo-marker-label-current">${location.country}</div>
-                    <div class="neo-marker-pin neo-marker-pin-current"></div>
-                `,
-                iconSize: [35, 35],
-                iconAnchor: [17.5, 50],
-                popupAnchor: [0, -50]
             });
-
-            let popupContent = `<div class="map-popup">`;
-            popupContent += `<div class="map-popup-country">${location.country}</div>`;
-            location.companies.forEach((company, index) => {
-                if (index > 0) popupContent += `<div class="map-popup-divider"></div>`;
-                popupContent += `
-                    <div class="map-popup-company">
-                        <strong>${company.company}</strong>
-                        <span>${company.role}</span>
-                        <small>${company.city}</small>
-                        <small>${company.period}</small>
-                    </div>
-                `;
-            });
-            popupContent += `</div>`;
-
-            const marker = L.marker(location.coords, { icon: markerIcon }).addTo(map);
-            marker.bindPopup(popupContent);
-            markers[location.country] = marker;
-        });
-
-        // Timeline click handlers
-        document.querySelectorAll('.timeline-item-flat').forEach(item => {
-            item.addEventListener('click', () => {
-                const country = item.getAttribute('data-country');
-                const marker = markers[country];
-                if (marker) {
-                    map.setView(marker.getLatLng(), 8, { animate: true, duration: 1 });
-                    setTimeout(() => marker.openPopup(), 500);
-                }
-            });
-        });
+        }
+        bindTimelineClickHandlers();
 
         // Progress Bar
         const progressBarFill = document.querySelector('.progress-bar-fill');
@@ -1079,12 +1031,13 @@
             try {
                 const projects = await SiteContent.loadProjects();
                 SiteContent.renderProjects(projects, document.getElementById('projects-list'));
+                if (typeof bindTimelineClickHandlers === 'function') bindTimelineClickHandlers();
             } catch (e) {
                 console.warn('Projects load failed; using defaults.', e);
             }
         })();
 
-        // Re-initialize Leaflet map for the dedicated map section
+        // Re-initialize Leaflet map for the projects+map section
         document.addEventListener('DOMContentLoaded', function initMapSection() {
             const mapEl = document.getElementById('journey-map');
             if (!mapEl || !window.L) return;
@@ -1115,15 +1068,33 @@
                 }
             });
             new L.Control.Home({ position: 'topright' }).addTo(map);
-            const markerIcon = L.divIcon({
-                className: 'neo-marker neo-marker-current',
-                html: '<div class="neo-marker-label neo-marker-label-current">India</div><div class="neo-marker-pin neo-marker-pin-current"></div>',
-                iconSize: [35, 35],
-                iconAnchor: [17.5, 50],
-                popupAnchor: [0, -50]
+
+            // Visakhapatnam marker (also expose globally so inline timeline click handlers can use it)
+            const locations = [
+                { coords: [17.6868, 83.2185], country: 'India',
+                  companies: [{ city: 'Visakhapatnam', company: 'All Projects', period: '2024 - Present', role: 'Developer & Designer' }] }
+            ];
+            const markers = {};
+            locations.forEach(location => {
+                const markerIcon = L.divIcon({
+                    className: 'neo-marker neo-marker-current',
+                    html: '<div class="neo-marker-label neo-marker-label-current">' + location.country + '</div><div class="neo-marker-pin neo-marker-pin-current"></div>',
+                    iconSize: [35, 35],
+                    iconAnchor: [17.5, 50],
+                    popupAnchor: [0, -50]
+                });
+                let popupContent = '<div class="map-popup"><div class="map-popup-country">' + location.country + '</div>';
+                location.companies.forEach((company, index) => {
+                    if (index > 0) popupContent += '<div class="map-popup-divider"></div>';
+                    popupContent += '<div class="map-popup-company"><strong>' + company.company + '</strong><span>' + company.role + '</span><small>' + company.city + '</small><small>' + company.period + '</small></div>';
+                });
+                popupContent += '</div>';
+                const marker = L.marker(location.coords, { icon: markerIcon }).addTo(map);
+                marker.bindPopup(popupContent);
+                markers[location.country] = marker;
             });
-            const marker = L.marker(initialView.center, { icon: markerIcon }).addTo(map);
-            marker.bindPopup('<div class="map-popup"><div class="map-popup-country">India</div><div class="map-popup-company"><strong>Visakhapatnam</strong><span>Home base</span><small>Andhra Pradesh</small></div></div>');
+            window.journeyMap = map;
+            window.journeyMarkers = markers;
         });
 
         // Talk to Us form handler — submits to Web3Forms, shows status inline
