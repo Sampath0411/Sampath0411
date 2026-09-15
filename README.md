@@ -1,4 +1,4 @@
-# 💻 Hey, I'm Sampath Satya Saran
+# 💻 Hey, I'm Sampath
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=6C63FF&height=200&section=header&text=Sampath%20Satya%20Saran&fontSize=50&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Builder%20%7C%20Designer%20%7C%20Creator&descAlignY=55&descAlign=50" width="100%" />
