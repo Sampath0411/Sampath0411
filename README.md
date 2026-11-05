@@ -162,17 +162,21 @@ C/C++        █████████░░░░░░░░░░░  45%
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%" />
 
-<!-- Spotify section parked until the widget service is back
-## 🎧 Vibing To
+## 🎧 On Repeat
 
 <p align="center">
-  <a href="https://open.spotify.com/user/YOUR_SPOTIFY_USER_ID">
-    <img src="https://spotify-github-profile.kittinan.vercel.app/api/view?uid=YOUR_SPOTIFY_USER_ID&cover_image=true&theme=novatorem&show_offline=true&background_color=0d1117&interchange=false&bar_color=6C63FF&bar_color_cover=true" alt="Spotify now playing" />
+  <a href="https://open.spotify.com/track/2AX5E86cn9n2dgioZEjirI">
+    <img src="https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0247066a9aac4e3493fe5b8677" alt="Golden Brown by The Stranglers" width="120" />
+  </a>
+  <br />
+  <a href="https://open.spotify.com/track/2AX5E86cn9n2dgioZEjirI">
+    <img src="https://img.shields.io/badge/Listen%20on-Spotify-1DB954?style=for-the-badge&logo=spotify&logoColor=white" alt="Listen to Golden Brown on Spotify" />
   </a>
 </p>
 
+<p align="center"><sub>🎵 Golden Brown — The Stranglers · Click to listen on Spotify</sub></p>
+
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%" />
--->
 
 ## 📊 GitHub Stats
 
