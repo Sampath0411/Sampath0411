@@ -20,13 +20,9 @@
 
 ## 🧑‍💻 About Me
 
-<img align="right" alt="Coding" width="350" src="https://cdn.dribbble.com/users/1162077/screenshots/3848914/programmer.gif" />
-
 I'm a second-year **B.Tech Computer Science & Engineering** student at **Andhra University, Visakhapatnam** (2025–2029). I build real products solo using AI tools, combine design with development, and create content across multiple platforms.
 
 I'm into animated UI/UX, original branding, and a handcrafted aesthetic — basically, nothing generic.
-
-<br/><br/><br/><br/><br/>
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%" />
 
