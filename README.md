@@ -43,6 +43,25 @@ I'm into animated UI/UX, original branding, and a handcrafted aesthetic — basi
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%" />
 
+## 📌 Pinned Repos
+
+<p align="center">
+  <a href="https://github.com/Sampath0411/glance-windows">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Sampath0411&repo=glance-windows&theme=tokyonight&hide_border=true" />
+  </a>
+  <!-- add more cards by copying the block above and changing repo=NAME -->
+</p>
+
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%" />
+
+## 🏆 Achievements
+
+- 🇮🇳 **Smart India Hackathon 2026** — submitted idea *3D ULPIN* (PS 26011) with team **LimitlessLabs**
+- 🏫 Built the **AU Faculty Portal** (smart attendance, analytics, instant letter generator) as a hackathon demo
+- 🚀 Shipped multiple solo products across web, PWA and Python, from resume builders to a voice assistant
+
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%" />
+
 ## 🛠️ Tech Stack
 
 ![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
@@ -118,6 +137,21 @@ C/C++        █████████░░░░░░░░░░░  45%
   <a href="https://internshala.com" target="_blank">
     <img src="https://img.shields.io/badge/Internshala-00A550?style=for-the-badge&logo=briefcase&logoColor=white" />
   </a>
+</p>
+
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%" />
+
+## 📬 Contact
+
+<p align="center">
+  <a href="mailto:sampathlox@gmail.com"><img src="https://img.shields.io/badge/Email-sampathlox%40gmail.com-6C63FF?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+  <a href="https://www.linkedin.com/in/sampath1904"><img src="https://img.shields.io/badge/LinkedIn-sampath1904-6C63FF?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+  <a href="https://instagram.com/samxeditz.56"><img src="https://img.shields.io/badge/Instagram-%40samxeditz.56-6C63FF?style=for-the-badge&logo=instagram&logoColor=white" /></a>
+</p>
+
+<p align="center">
+  <b>Got a project, an internship, or an idea? Drop me a mail, I reply fast.</b><br/>
+  Open for web development and video editing work, remote preferred.
 </p>
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%" />
