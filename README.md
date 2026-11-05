@@ -39,13 +39,14 @@ I'm into animated UI/UX, original branding, and a handcrafted aesthetic — basi
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%" />
 
-## 📌 Pinned Repos
+## 📌 Featured Repos
 
 <p align="center">
-  <a href="https://github.com/Sampath0411/glance-windows">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Sampath0411&repo=glance-windows&theme=tokyonight&hide_border=true" />
-  </a>
-  <!-- add more cards by copying the block above and changing repo=NAME -->
+  <a href="https://github.com/Sampath0411/Resumepulse"><img src="https://img.shields.io/badge/Resumepulse-HTML-6C63FF?style=for-the-badge&logo=github&logoColor=white&labelColor=0d1117" /></a>
+  <a href="https://github.com/Sampath0411/OpenJarvis"><img src="https://img.shields.io/badge/OpenJarvis-Python-6C63FF?style=for-the-badge&logo=github&logoColor=white&labelColor=0d1117" /></a>
+  <a href="https://github.com/Sampath0411/SIH"><img src="https://img.shields.io/badge/SIH-TypeScript-6C63FF?style=for-the-badge&logo=github&logoColor=white&labelColor=0d1117" /></a>
+  <a href="https://github.com/Sampath0411/glance-windows"><img src="https://img.shields.io/badge/glance--windows-Face_Unlock-6C63FF?style=for-the-badge&logo=github&logoColor=white&labelColor=0d1117" /></a>
+  <a href="https://github.com/Sampath0411/CSSE-Super-Students"><img src="https://img.shields.io/badge/CSSE--Super--Students-TypeScript-6C63FF?style=for-the-badge&logo=github&logoColor=white&labelColor=0d1117" /></a>
 </p>
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%" />
@@ -98,7 +99,7 @@ C/C++        █████████░░░░░░░░░░░  45%
 ## 💼 Open to Opportunities
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=12&height=80&text=🚀%20Available%20for%20Part-Time%20%26%20Remote%20Internships&fontSize=20&fontColor=ffffff&animation=twinkling" width="100%" />
+  <img src="https://img.shields.io/badge/🚀_AVAILABLE_FOR-PART--TIME_%26_REMOTE_INTERNSHIPS-6C63FF?style=for-the-badge&labelColor=0d1117" />
 </p>
 
 > 💬 I'm actively looking for **web development** and **video editing** internships — remote/work-from-home preferred. Feel free to reach out!
@@ -174,22 +175,18 @@ C/C++        █████████░░░░░░░░░░░  45%
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Sampath0411&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" height="165" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Sampath0411&layout=compact&theme=tokyonight&hide_border=true" height="165" />
-</p>
-
-<p align="center">
   <img src="https://github-readme-streak-stats.herokuapp.com?user=Sampath0411&theme=tokyonight&hide_border=true" />
 </p>
 
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=Sampath0411&theme=tokyonight&no-frame=true&row=1&column=6" />
+  <img src="https://img.shields.io/github/followers/Sampath0411?style=for-the-badge&logo=github&color=6C63FF&labelColor=0d1117" />
+  <img src="https://img.shields.io/github/last-commit/Sampath0411/Sampath0411?style=for-the-badge&color=6C63FF&labelColor=0d1117" />
 </p>
 
 ### 📈 Contribution Graph
 
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Sampath0411&bg_color=0d1117&color=6C63FF&line=6C63FF&point=ffffff&area=true&hide_border=true" width="100%" />
+  <img src="https://ghchart.rshah.org/6C63FF/Sampath0411" alt="contribution chart" width="100%" />
 </p>
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%" />
