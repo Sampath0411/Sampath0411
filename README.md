@@ -28,10 +28,6 @@ I'm into animated UI/UX, original branding, and a handcrafted aesthetic — basi
 
 ## 🚀 Projects
 
-<p align="center">
-  <img src="https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif" width="420" />
-</p>
-
 | Project | Description | Tech |
 |---|---|---|
 | **ResumePlus / ResumePulse** | ATS-friendly resume builder | HTML, CSS, JS |
@@ -162,6 +158,16 @@ C/C++        █████████░░░░░░░░░░░  45%
 - 🔍 Looking for **part-time / work-from-home internships** (web dev, video editing)
 - 🛠️ Building and shipping projects with AI tools
 - 📱 Creating tech content on Instagram
+
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%" />
+
+## 🎧 Vibing To
+
+<p align="center">
+  <a href="https://open.spotify.com/user/YOUR_SPOTIFY_USER_ID">
+    <img src="https://spotify-github-profile.kittinan.vercel.app/api/view?uid=YOUR_SPOTIFY_USER_ID&cover_image=true&theme=novatorem&show_offline=true&background_color=0d1117&interchange=false&bar_color=6C63FF&bar_color_cover=true" alt="Spotify now playing" />
+  </a>
+</p>
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%" />
 
