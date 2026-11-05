@@ -1,71 +1,103 @@
-# Hey, I'm Sampath 👋
+# 💻 Hey, I'm Sampath
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=C8FF00&height=200&section=header&text=Sampath%20Satya%20Saran&fontSize=50&fontColor=0A0A0A&animation=fadeIn&fontAlignY=38&desc=Builder%20%7C%20Designer%20%7C%20Creator&descAlignY=55&descAlign=50" width="100%" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=6C63FF&height=200&section=header&text=Sampath%20Satya%20Saran&fontSize=50&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Builder%20%7C%20Designer%20%7C%20Creator&descAlignY=55&descAlign=50" width="100%" />
 </p>
 
 <p align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=22&pause=1000&color=FF3D00&center=true&vCenter=true&width=500&lines=BTech+CSE+%40+Andhra+University;Builder+%7C+Designer+%7C+Creator;Web+Dev+%7C+AI+Builder+%7C+UI%2FUX;Open+to+Dev+Internships+%F0%9F%9A%80" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=22&pause=1000&color=6C63FF&center=true&vCenter=true&width=500&lines=BTech+CSE+%40+Andhra+University;Builder+%7C+Designer+%7C+Creator;Web+Dev+%7C+Video+Editor+%7C+AI+Builder;Open+to+Internships+%F0%9F%9A%80" alt="Typing SVG" />
   </a>
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=Sampath0411&color=C8FF00&style=for-the-badge&label=PROFILE+VIEWS" />
+  <img src="https://komarev.com/ghpvc/?username=Sampath0411&color=6C63FF&style=for-the-badge&label=PROFILE+VIEWS" />
 </p>
 
-> Second-year B.Tech CSE student · Builder · Designer · Creator
+> BTech CSE Student · Builder · Creator · Designer
 
 ---
 
-## About Me
+## 🧑‍💻 About Me
 
-I'm a second-year **B.Tech Computer Science & Engineering** student at **Andhra University, Visakhapatnam** (2025–2029). I build real products solo using AI-assisted workflows, combine design with development, and ship things people actually use — client sites, live stores, hackathon builds.
+<img align="right" alt="Coding" width="350" src="https://cdn.dribbble.com/users/1162077/screenshots/3848914/programmer.gif" />
 
-I'm into animated UI/UX, original branding, and a handcrafted aesthetic — nothing generic.
+I'm a second-year **B.Tech Computer Science & Engineering** student at **Andhra University, Visakhapatnam** (2025–2029). I build real products solo using AI tools, combine design with development, and create content across multiple platforms.
+
+I'm into animated UI/UX, original branding, and a handcrafted aesthetic — basically, nothing generic.
+
+<br/><br/><br/><br/><br/>
 
 ---
 
-## What I'm Building
+## 🚀 Projects
 
-| Project | What it is | Tech |
+| Project | Description | Tech |
 |---|---|---|
-| [**glance-windows**](https://github.com/Sampath0411/glance-windows) | Face unlock for Windows 11 — on-device face recognition that signs you in | Python, ONNX Runtime, InsightFace |
-| [**Devsocio**](https://github.com/Sampath0411/Devsocio) | Social platform for developers — connect, collaborate, showcase work | Flutter, Dart, Firebase |
-| [**PS26011-3D-Building-Map**](https://github.com/Sampath0411/PS26011-3D-Building-Map) | 3D ULPIN building map — SIH 2026 | TypeScript, Three.js |
-| [**Resumepulse**](https://github.com/Sampath0411/Resumepulse) | ATS-friendly resume builder with animated UI | HTML, CSS, JavaScript, Node.js |
-| [**agrishield-ai**](https://github.com/Sampath0411/agrishield-ai) | AI rice-disease detection & farmer assistant | Python, Machine Learning |
-| [**swiggy-life-ai**](https://github.com/Sampath0411/swiggy-life-ai) | AI-powered food discovery experience | TypeScript, React, Tailwind CSS |
+| **ResumePlus / ResumePulse** | ATS-friendly resume builder | HTML, CSS, JS |
+| **Social Media Platform** | Instagram-like platform | JavaScript |
+| **Tony** | Multi-language voice assistant (offline + online) | Python |
+| **EventFlow** | Event creation & registration platform with QR codes, CSV export, dual roles | HTML, JS, localStorage |
+| **Trackr** | PWA expense tracker | PWA, JS |
+| **AU Faculty Portal** | Smart attendance, analytics, instant letter generator (hackathon demo) | HTML, CSS, JS |
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
-![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
+![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![LaTeX](https://img.shields.io/badge/LaTeX-008080?style=for-the-badge&logo=latex&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+![Context API](https://img.shields.io/badge/Context--API-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![.NET](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
+![Deno JS](https://img.shields.io/badge/Deno-000000?style=for-the-badge&logo=deno&logoColor=white)
+![Google Cloud](https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
+![Windows Terminal](https://img.shields.io/badge/Windows_Terminal-4D4D4D?style=for-the-badge&logo=windowsterminal&logoColor=white)
+![Adobe After Effects](https://img.shields.io/badge/After_Effects-9999FF?style=for-the-badge&logo=adobeaftereffects&logoColor=white)
+![Adobe Creative Cloud](https://img.shields.io/badge/Creative_Cloud-DA1F26?style=for-the-badge&logo=adobecreativecloud&logoColor=white)
 ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
+![Adobe Photoshop](https://img.shields.io/badge/Photoshop-31A8FF?style=for-the-badge&logo=adobephotoshop&logoColor=white)
+![Canva](https://img.shields.io/badge/Canva-00C4CC?style=for-the-badge&logo=canva&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 
 ---
 
-## Open to Opportunities
+## 📈 Skill Levels
 
-> I'm actively looking for **part-time remote developer internships** — React, Python, full-stack, or AI-assisted builds. If you're hiring, let's talk.
+```
+HTML/CSS     ████████████████░░░░  80%
+JavaScript   ██████████████░░░░░░  70%
+Python       ████████████░░░░░░░░  60%
+UI/UX Design ███████████████░░░░░  75%
+Video Edit   ██████████████░░░░░░  70%
+C/C++        █████████░░░░░░░░░░░  45%
+```
 
 ---
 
-## Connect With Me
+## 💼 Open to Opportunities
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=12&height=80&text=🚀%20Available%20for%20Part-Time%20%26%20Remote%20Internships&fontSize=20&fontColor=ffffff&animation=twinkling" width="100%" />
+</p>
+
+> 💬 I'm actively looking for **web development** and **video editing** internships — remote/work-from-home preferred. Feel free to reach out!
+
+---
+
+| Platform | Handle | Niche |
+|---|---|---|
+| Instagram | [@samxeditz.56](https://instagram.com/samxeditz.56) | Video editing content |
+| Instagram | [@\_exotic\_sampath.56](https://instagram.com/_exotic_sampath.56) | Personal |
+
+---
+
+## 🤝 Connect With Me
 
 <p align="center">
   <a href="https://www.linkedin.com/in/sampath1904" target="_blank">
@@ -74,14 +106,68 @@ I'm into animated UI/UX, original branding, and a handcrafted aesthetic — noth
   <a href="https://github.com/Sampath0411" target="_blank">
     <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" />
   </a>
-  <a href="https://instagram.com/_exotic_sampath.56" target="_blank">
+  <a href="https://instagram.com/samxeditz.56" target="_blank">
     <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" />
   </a>
-  <a href="https://instagram.com/sam.verse_56" target="_blank">
-    <img src="https://img.shields.io/badge/Instagram_Tech-E4405F?style=for-the-badge&logo=instagram&logoColor=white" />
+  <a href="mailto:sampathlox@gmail.com" target="_blank">
+    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
+  </a>
+  <a href="https://www.linkedin.com/in/sampath1904" target="_blank">
+    <img src="https://img.shields.io/badge/Resume-6C63FF?style=for-the-badge&logo=readthedocs&logoColor=white" />
+  </a>
+  <a href="https://internshala.com" target="_blank">
+    <img src="https://img.shields.io/badge/Internshala-00A550?style=for-the-badge&logo=briefcase&logoColor=white" />
   </a>
 </p>
 
+---
+
+## 📌 Currently
+
+- 🎓 2nd year BTech CSE @ Andhra University
+- 🔍 Looking for **part-time / work-from-home internships** (web dev, video editing)
+- 🛠️ Building and shipping projects with AI tools
+- 📱 Creating tech content on Instagram
+
+## 📊 GitHub Stats
+
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Sampath0411&show_icons=true&theme=dark&hide_border=true&title_color=C8FF00&icon_color=C8FF00&text_color=ffffff&bg_color=0A0A0A" />
+  <img src="https://github-readme-stats.vercel.app/api?username=Sampath0411&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" height="165" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Sampath0411&layout=compact&theme=tokyonight&hide_border=true" height="165" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com?user=Sampath0411&theme=tokyonight&hide_border=true" />
+</p>
+
+<p align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=Sampath0411&theme=tokyonight&no-frame=true&row=1&column=6" />
+</p>
+
+---
+
+## 🏙️ GitHub Skyline
+
+<p align="center">
+  <a href="https://skyline.github.com/Sampath0411/2025" target="_blank">
+    <img src="https://img.shields.io/badge/View%20My%20GitHub%20Skyline%203D-6C63FF?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+</p>
+
+> 🏙️ Check out my **[GitHub Skyline 2025](https://skyline.github.com/Sampath0411/2025)** — a 3D model of my contribution graph!
+
+---
+
+## 🐍 Contribution Snake
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Sampath0411/Sampath0411/output/github-contribution-grid-snake-dark.svg" alt="snake gif" />
+</p>
+
+---
+
+*Built with passion. Shipped with AI. ⚡*
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=6C63FF&height=100&section=footer" width="100%" />
 </p>
